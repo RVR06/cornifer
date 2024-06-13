@@ -1,0 +1,11 @@
+.vscode-test
+
+dist
+node_modules
+out
+
+*.vsix
+
+# Structurizr
+**/.structurizr
+**/workspace.json

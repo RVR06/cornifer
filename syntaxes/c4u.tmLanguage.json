@@ -1,0 +1,415 @@
+{
+    "scopeName": "source.c4u",
+    "patterns": [
+        {
+            "include": "#view_dynamic"
+        },
+        {
+            "include": "source.c4#view_filtered"
+        },
+        {
+            "include": "source.c4#view_systemLandscape"
+        },
+        {
+            "include": "source.c4"
+        },
+        {
+            "include": "source.c4#comment"
+        },
+        {
+            "include": "source.c4#include"
+        },
+        {
+            "include": "source.c4#tags"
+        },
+        {
+            "include": "source.c4#theme"
+        },
+        {
+            "include": "source.c4#properties"
+        },
+        {
+            "include": "source.c4#description"
+        },
+        {
+            "include": "source.c4#technology"
+        },
+        {
+            "include": "source.c4#styles"
+        },
+        {
+            "include": "source.c4#styles_element"
+        },
+        {
+            "include": "source.c4#styles_relationship"
+        },
+        {
+            "include": "source.c4#branding"
+        },
+        {
+            "include": "source.c4#logo"
+        },
+        {
+            "include": "source.c4#constant"
+        },
+        {
+            "include": "source.c4#workspace"
+        },
+        {
+            "include": "source.c4#url"
+        },
+        {
+            "include": "source.c4#healthCheck"
+        },
+        {
+            "include": "source.c4#configuration"
+        },
+        {
+            "include": "source.c4#model"
+        },
+        {
+            "include": "source.c4#group"
+        },
+        {
+            "include": "source.c4#group_1"
+        },
+        {
+            "include": "source.c4#group_2"
+        },
+        {
+            "include": "source.c4#perspectives"
+        },
+        {
+            "include": "source.c4#perspective"
+        },
+        {
+            "include": "source.c4#person"
+        },
+        {
+            "include": "source.c4#person_oneliner"
+        },
+        {
+            "include": "source.c4#enterprise"
+        },
+        {
+            "include": "source.c4#softwareSystem"
+        },
+        {
+            "include": "source.c4#softwareSystem_oneliner"
+        },
+        {
+            "include": "source.c4#container"
+        },
+        {
+            "include": "source.c4#container_oneliner"
+        },
+        {
+            "include": "source.c4#component"
+        },
+        {
+            "include": "source.c4#component_oneliner"
+        },
+        {
+            "include": "source.c4#deploymentEnvironment"
+        },
+        {
+            "include": "source.c4#deploymentNode"
+        },
+        {
+            "include": "source.c4#deploymentGroup"
+        },
+        {
+            "include": "source.c4#infrastructureNode"
+        },
+        {
+            "include": "source.c4#infrastructureNode_oneliner"
+        },
+        {
+            "include": "#ref"
+        },
+        {
+            "include": "#softwareSystemInstance"
+        },
+        {
+            "include": "#containerInstance"
+        },
+        {
+            "include": "source.c4#relationship"
+        },
+        {
+            "include": "source.c4#implicit_relationship"
+        },
+        {
+            "include": "source.c4#views"
+        },
+        {
+            "include": "#view_systemContext"
+        },
+        {
+            "include": "#view_container"
+        },
+        {
+            "include": "#view_component"
+        },
+        {
+            "include": "#view_deployment"
+        },
+        {
+            "include": "source.c4#animation"
+        }
+    ],
+    "repository": {
+        "ref": {
+            "name": "meta.ref",
+            "begin": "(?i)(\\s*)(!ref)(\\s+)(\\w+)(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.reference"
+                },
+                "4": {
+                    "name": "entity.name.reference"
+                },
+                "6": {
+                    "name": "keyword.reference"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.reference"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.c4#tags"
+                }
+            ]
+        },
+        "softwareSystemInstance": {
+            "name": "meta.softwareSystemInstance",
+            "begin": "(?i)(\\s*)(.*?)(\\s*=\\s*)(softwareSystemInstance)(\\s+)(.*?)(\\s+)(.*?)(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.softwareSystemInstance"
+                },
+                "4": {
+                    "name": "keyword.softwareSystemInstance"
+                },
+                "6": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "8": {
+                    "name": "entity.name.deploymentGroup"
+                },
+                "10": {
+                    "name": "string.tag"
+                },
+                "12": {
+                    "name": "keyword.softwareSystemInstance"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.softwareSystemInstance"
+                }
+            }
+        },
+        "containerInstance": {
+            "name": "meta.containerInstance",
+            "begin": "(?i)(\\s*)(.*?)(\\s*=\\s*)(containerInstance)(\\s+)(\\w+).(\\w+)(\\s+)(.*?)(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.containerInstance"
+                },
+                "4": {
+                    "name": "keyword.containerInstance"
+                },
+                "6": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "7": {
+                    "name": "entity.name.container"
+                },
+                "9": {
+                    "name": "entity.name.deploymentGroup"
+                },
+                "11": {
+                    "name": "string.tag"
+                },
+                "13": {
+                    "name": "keyword.containerInstance"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.containerInstance"
+                }
+            }
+        },
+        "view_systemContext": {
+            "name": "meta.view.systemContext",
+            "begin": "(?i)(\\s*)(systemContext)(\\s+)(\\w+)(\\s+)\"(.*?)\"(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.softwareSystem"
+                },
+                "4": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "8": {
+                    "name": "string.description"
+                },
+                "10": {
+                    "name": "keyword.softwareSystem"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.softwareSystem"
+                }
+            }
+        },
+        "view_container": {
+            "name": "meta.view.container",
+            "begin": "(?i)(\\s*)(container)(\\s+)(\\w+)(\\s+)\"(.*?)\"(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.container"
+                },
+                "4": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "8": {
+                    "name": "string.description"
+                },
+                "10": {
+                    "name": "keyword.container"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.container"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.c4#animation"
+                }
+            ]
+        },
+        "view_component": {
+            "name": "meta.view.component",
+            "begin": "(?i)(\\s*)(component)(\\s+)(\\w+).(\\w+)(\\s+)\"(.*?)\"(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.component"
+                },
+                "4": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "5": {
+                    "name": "entity.name.container"
+                },
+                "7": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.description"
+                },
+                "11": {
+                    "name": "keyword.component"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.component"
+                }
+            }
+        },
+        "view_deployment": {
+            "name": "meta.view.deployment",
+            "begin": "(?i)(\\s*)(deployment)(\\s+)(.*?)(\\s+)(.*?)(\\s+)\"(.*?)\"(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.deploymentEnvironment"
+                },
+                "4": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "6": {
+                    "name": "entity.name.deploymentEnvironment"
+                },
+                "8": {
+                    "name": "string.name"
+                },
+                "10": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "keyword.deploymentEnvironment"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.deploymentEnvironment"
+                }
+            }
+        },
+        "view_dynamic": {
+            "name": "meta.view.dynamic",
+            "begin": "(?i)(\\s*)(dynamic)(\\s+)((\\*)|(\\w+(.(\\w+))*))(\\s+)\"(.*?)\"(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "5": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "6": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "8": {
+                    "name": "entity.name.container"
+                },
+                "10": {
+                    "name": "string.name"
+                },
+                "12": {
+                    "name": "string.description"
+                },
+                "14": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "source.c4#view_serial_pipe"
+                },
+                {
+                    "include": "source.c4#view_parallel_pipe"
+                }
+            ]
+        }
+    }
+}

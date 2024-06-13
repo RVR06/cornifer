@@ -1,0 +1,86 @@
+# https://gohugo.io/hosting-and-deployment/hosting-on-github/
+
+name: Build and deploy GitHub pages
+
+on:
+  push:
+    paths:
+      - 'docs/**'
+      - '.github/workflows/gh-pages.yml'
+    branches:
+      - main  # Set a branch to deploy
+  pull_request:
+
+  # Enable manual workflow triggering from the Actions tab
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+env:
+  # Set the documentation root
+  documentation_root: './docs'
+
+jobs:
+  build:
+    permissions:
+      contents: read
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: ${{ env.documentation_root }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: recursive
+          lfs: 'true'
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: '${{ env.documentation_root }}/package-lock.json'
+      
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2.6.0
+        with:
+          hugo-version: 0.123.8
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ${{ env.documentation_root }}/public
+
+  deploy:
+    defaults:
+      run:
+        working-directory: ${{ env.documentation_root }}
+
+    if: github.ref == 'refs/heads/main'
+
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

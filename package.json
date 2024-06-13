@@ -1,0 +1,735 @@
+{
+	"name": "cornifer",
+	"displayName": "Cornifer",
+	"description": "Unleash C4 DSL authoring.",
+	"author": "Romain Vasseur",
+	"icon": "cornifer.png",
+	"pricing": "Free",
+	"galleryBanner": {
+		"color": "#403F4C",
+		"theme": "dark"
+	},
+	"license": "SEE LICENSE IN LICENSE.txt",
+	"publisher": "rvr06",
+	"version": "0.30.0",
+	"preview": true,
+	"homepage": "https://github.com/rvr06/cornifer/blob/main/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rvr06/cornifer"
+	},
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"categories": [
+		"Linters", 
+		"Programming Languages",
+		"Other"
+	],
+	"keywords": [
+		"C4",
+		"C4 model",
+		"architecture",
+		"structurizr",
+		"DSL"
+	],
+	"activationEvents": [
+		"onLanguage:c4"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "c4",
+				"extensions": [
+					".dsl"
+				],
+				"description": "C4 DSL IDE support",
+				"configuration": "./language-configuration.json",
+				"icon": {
+					"dark": "./resources/cornifer-dark.svg",
+					"light": "./resources/cornifer-light.svg"
+				}
+			},
+			{
+				"id": "c4u",
+				"extensions": [
+					".dslf"
+				],
+				"description": "Unstructured C4 DSL IDE support for snippet or fragment purpose.",
+				"configuration": "./language-configuration.json",
+				"icon": {
+					"dark": "./resources/cornifer-dark.svg",
+					"light": "./resources/cornifer-light.svg"
+				}
+			},
+			{
+				"id": "yaml",
+				"filenames": [
+					"compose.yaml",
+					"compose.yml",
+					"docker-compose.yaml",
+					"docker-compose.yml"
+				],
+				"description": "Transpile docker compose to Structurizr dsl.",
+				"icon": {
+					"dark": "./resources/cornifer-dark.svg",
+					"light": "./resources/cornifer-light.svg"
+				}
+			}
+		],
+		"commands": [
+			{
+				"command": "cornifer.preview",
+				"title": "Cornifer: Preview Structurizr",
+				"icon": {
+					"dark": "./resources/cornifer-dark.svg",
+					"light": "./resources/cornifer-light.svg"
+				}
+			},
+			{
+				"command": "cornifer.transpiler",
+				"title": "Cornifer: Transpile to Structurizr dsl",
+				"icon": {
+					"dark": "./resources/cornifer-dark.svg",
+					"light": "./resources/cornifer-light.svg"
+				}
+			}
+		],
+		"keybindings": [
+			{
+				"command": "cornifer.preview",
+				"key": "ctrl+alt+p",
+				"mac": "shift+cmd+p"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "cornifer.preview",
+					"when": "resourceLangId == c4",
+					"group": "navigation"
+				},
+				{
+					"command": "cornifer.transpiler",
+					"when": "resourceLangId == yaml",
+					"group": "navigation"
+				}
+			]
+		},
+		"grammars": [
+			{
+				"language": "c4",
+				"scopeName": "source.c4",
+				"path": "./syntaxes/c4.tmLanguage.json"
+			},
+			{
+				"language": "c4u",
+				"scopeName": "source.c4u",
+				"path": "./syntaxes/c4u.tmLanguage.json"
+			}
+		],
+		"semanticTokenTypes": [
+			{
+				"id": "person",
+				"description": "person identifier"
+			},
+			{
+				"id": "softwareSystem",
+				"description": "softwareSystem identifier"
+			},
+			{
+				"id": "softwareSystemInstance",
+				"description": "softwareSystemInstance identifier"
+			},
+			{
+				"id": "container",
+				"description": "container identifier"
+			},
+			{
+				"id": "containerInstance",
+				"description": "containerInstance identifier"
+			},
+			{
+				"id": "component",
+				"description": "component identifier"
+			},
+			{
+				"id": "reference",
+				"description": "reference identifier"
+			},
+			{
+				"id": "deploymentEnvironment",
+				"description": "deploymentEnvironment identifier"
+			},
+			{
+				"id": "deploymentGroup",
+				"description": "deploymentGroup identifier"
+			},
+			{
+				"id": "deploymentNode",
+				"description": "deploymentNode identifier"
+			},
+			{
+				"id": "infrastructureNode",
+				"description": "infrastructureNode identifier"
+			}
+		],
+		"semanticTokenScopes": [
+			{
+				"scopes": {
+					"person": [
+						"entity.name.person"
+					],
+					"softwareSystem": [
+						"entity.name.softwareSystem"
+					],
+					"softwareSystemInstance": [
+						"entity.name.softwareSystemInstance"
+					],
+					"container": [
+						"entity.name.container"
+					],
+					"containerInstance": [
+						"entity.name.containerInstance"
+					],
+					"component": [
+						"entity.name.component"
+					],
+					"reference": [
+						"entity.name.reference"
+					],
+					"deploymentEnvironment": [
+						"entity.name.deploymentEnvironment"
+					],
+					"deploymentGroup": [
+						"entity.name.deploymentGroup"
+					],
+					"deploymentNode": [
+						"entity.name.deploymentNode"
+					],
+					"infrastructureNode": [
+						"entity.name.infrastructureNode"
+					]
+				}
+			}
+		],
+		"configuration": {
+			"title": "Cornifer",
+			"properties": {
+				"cornifer.structurizrLiteTag": {
+					"type": "string",
+					"default": "latest",
+					"description": "Structurizr Lite docker image tag used for preview."
+				},
+				"cornifer.disablePrompt": {
+					"type": "boolean",
+					"default": false,
+					"description": "Disable Cornifer prompt when extension is activated."
+				}
+			}
+		},
+		"configurationDefaults": {
+			"[c4]": {
+				"editor.semanticHighlighting.enabled": true,
+				"editor.formatOnSave": true,
+				"editor.bracketPairColorization.enabled": false,
+				"breadcrumbs.enabled": true
+			},
+			"[c4u]": {
+				"editor.semanticHighlighting.enabled": true,
+				"editor.formatOnSave": true,
+				"editor.bracketPairColorization.enabled": false,
+				"breadcrumbs.enabled": true
+			},
+			"editor.tokenColorCustomizations": {
+				"[*]": {
+					"textMateRules": [
+						{
+							"scope": [
+								"string.comment"
+							],
+							"settings": {
+								"foreground": "#cacaca",
+								"fontStyle": "italic"
+							}
+						},
+						{
+							"scope": [
+								"string.link"
+							],
+							"settings": {
+								"foreground": "#cacaca",
+								"fontStyle": "underline"
+							}
+						},
+						{
+							"scope": [
+								"keyword.workspace",
+								"keyword.section",
+								"keyword.enterprise",
+								"keyword.reference",
+								"keyword.systemLandscape",
+								"keyword.group"
+							],
+							"settings": {
+								"foreground": "#c49060",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"keyword.person"
+							],
+							"settings": {
+								"foreground": "#834187",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.person"
+							],
+							"settings": {
+								"foreground": "#834187"
+							}
+						},
+						{
+							"scope": [
+								"keyword.softwareSystem",
+								"keyword.softwareSystemInstance"
+							],
+							"settings": {
+								"foreground": "#0c7cba",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.softwareSystem",
+								"entity.name.softwareSystemInstance"
+							],
+							"settings": {
+								"foreground": "#0c7cba"
+							}
+						},
+						{
+							"scope": [
+								"keyword.container",
+								"keyword.containerInstance"
+							],
+							"settings": {
+								"foreground": "#c92d39",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.container",
+								"entity.name.containerInstance"
+							],
+							"settings": {
+								"foreground": "#c92d39"
+							}
+						},
+						{
+							"scope": [
+								"keyword.component"
+							],
+							"settings": {
+								"foreground": "#7ab648",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.component"
+							],
+							"settings": {
+								"foreground": "#7ab648"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.reference"
+							],
+							"settings": {
+								"foreground": "#ae2963",
+								"fontStyle": "underline"
+							}
+						},
+						{
+							"scope": [
+								"keyword.deploymentEnvironment"
+							],
+							"settings": {
+								"foreground": "#ee5f8a",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.deploymentEnvironment"
+							],
+							"settings": {
+								"foreground": "#ee5f8a"
+							}
+						},
+						{
+							"scope": [
+								"keyword.deploymentGroup"
+							],
+							"settings": {
+								"foreground": "#fcc438",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.deploymentGroup"
+							],
+							"settings": {
+								"foreground": "#fcc438"
+							}
+						},
+						{
+							"scope": [
+								"keyword.deploymentNode"
+							],
+							"settings": {
+								"foreground": "#3aa6dd",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.deploymentNode"
+							],
+							"settings": {
+								"foreground": "#3aa6dd"
+							}
+						},
+						{
+							"scope": [
+								"keyword.infrastructureNode"
+							],
+							"settings": {
+								"foreground": "#19967d",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.infrastructureNode"
+							],
+							"settings": {
+								"foreground": "#19967d"
+							}
+						},
+						{
+							"scope": [
+								"string.name"
+							],
+							"settings": {
+								"foreground": "#B2CCD6"
+							}
+						},
+						{
+							"scope": [
+								"string.description"
+							],
+							"settings": {
+								"fontStyle": "italic",
+								"foreground": "#546E7A"
+							}
+						},
+						{
+							"scope": [
+								"string.technology"
+							],
+							"settings": {
+								"foreground": "#4f9db8"
+							}
+						},
+						{
+							"scope": [
+								"string.tag"
+							],
+							"settings": {
+								"foreground": "#e4551d"
+							}
+						},
+						{
+							"scope": [
+								"constant.numeric.instances"
+							],
+							"settings": {
+								"foreground": "#ecb706"
+							}
+						}
+					]
+				},
+				"[*Light*]": {
+					"textMateRules": [
+						{
+							"scope": [
+								"string.comment"
+							],
+							"settings": {
+								"foreground": "#006d18",
+								"fontStyle": "italic"
+							}
+						},
+						{
+							"scope": [
+								"string.link"
+							],
+							"settings": {
+								"foreground": "#0300a7",
+								"fontStyle": "underline"
+							}
+						},
+						{
+							"scope": [
+								"keyword.workspace",
+								"keyword.section",
+								"keyword.enterprise",
+								"keyword.reference",
+								"keyword.systemLandscape",
+								"keyword.group"
+							],
+							"settings": {
+								"foreground": "#c49060",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"keyword.person"
+							],
+							"settings": {
+								"foreground": "#834187",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.person"
+							],
+							"settings": {
+								"foreground": "#834187"
+							}
+						},
+						{
+							"scope": [
+								"keyword.softwareSystem",
+								"keyword.softwareSystemInstance"
+							],
+							"settings": {
+								"foreground": "#0c7cba",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.softwareSystem",
+								"entity.name.softwareSystemInstance"
+							],
+							"settings": {
+								"foreground": "#0c7cba"
+							}
+						},
+						{
+							"scope": [
+								"keyword.container",
+								"keyword.containerInstance"
+							],
+							"settings": {
+								"foreground": "#c92d39",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.container",
+								"entity.name.containerInstance"
+							],
+							"settings": {
+								"foreground": "#c92d39"
+							}
+						},
+						{
+							"scope": [
+								"keyword.component"
+							],
+							"settings": {
+								"foreground": "#7ab648",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.component"
+							],
+							"settings": {
+								"foreground": "#7ab648"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.reference"
+							],
+							"settings": {
+								"foreground": "#ae2963",
+								"fontStyle": "underline"
+							}
+						},
+						{
+							"scope": [
+								"keyword.deploymentEnvironment"
+							],
+							"settings": {
+								"foreground": "#ee5f8a",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.deploymentEnvironment"
+							],
+							"settings": {
+								"foreground": "#ee5f8a"
+							}
+						},
+						{
+							"scope": [
+								"keyword.deploymentGroup"
+							],
+							"settings": {
+								"foreground": "#fcc438",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.deploymentGroup"
+							],
+							"settings": {
+								"foreground": "#fcc438"
+							}
+						},
+						{
+							"scope": [
+								"keyword.deploymentNode"
+							],
+							"settings": {
+								"foreground": "#3aa6dd",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.deploymentNode"
+							],
+							"settings": {
+								"foreground": "#3aa6dd"
+							}
+						},
+						{
+							"scope": [
+								"keyword.infrastructureNode"
+							],
+							"settings": {
+								"foreground": "#19967d",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.infrastructureNode"
+							],
+							"settings": {
+								"foreground": "#19967d"
+							}
+						},
+						{
+							"scope": [
+								"string.name"
+							],
+							"settings": {
+								"foreground": "#5e7f8b"
+							}
+						},
+						{
+							"scope": [
+								"string.description"
+							],
+							"settings": {
+								"fontStyle": "italic",
+								"foreground": "#546E7A"
+							}
+						},
+						{
+							"scope": [
+								"string.technology"
+							],
+							"settings": {
+								"foreground": "#4f9db8"
+							}
+						},
+						{
+							"scope": [
+								"string.tag"
+							],
+							"settings": {
+								"foreground": "#e4551d"
+							}
+						},
+						{
+							"scope": [
+								"constant.numeric.instances"
+							],
+							"settings": {
+								"foreground": "#ecb706"
+							}
+						}
+					]
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack --mode development",
+		"watch": "webpack --mode development --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js",
+		"craft": "vsce package",
+		"deploy": "vsce publish"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.63.0",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
+		"@vscode/test-electron": "^1.6.2",
+		"@vscode/vsce": "^2.26.1",
+		"eslint": "^8.49.0",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.3",
+		"ts-loader": "^9.2.5",
+		"typescript": "^4.4.4",
+		"webpack": "^5.88.2",
+		"webpack-cli": "^5.1.4"
+	},
+	"dependencies": {
+		"@types/js-yaml": "^4.0.5",
+		"portfinder": "^1.0.28"
+	}
+}

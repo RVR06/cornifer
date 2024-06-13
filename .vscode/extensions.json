@@ -1,0 +1,6 @@
+{
+    // https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+    "recommendations": [
+        "dbaeumer.vscode-eslint"
+    ]
+}

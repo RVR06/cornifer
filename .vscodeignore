@@ -1,0 +1,26 @@
+# Filter all that does not belong to extension artifact
+
+.devcontainer/**
+.github/**
+.vscode/**
+.vscode-test/**
+
+docs/**
+node_modules/**
+out/**
+src/**
+testFixture/**
+
+**/.structurizr/**
+**/*.dsl
+
+.gitattributes
+.gitignore
+
+webpack.config.js
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+
+CONTRIBUTING.md

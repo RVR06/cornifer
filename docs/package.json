@@ -1,0 +1,15 @@
+{
+    "name": "cornifer",
+    "version": "1.0.0",
+    "description": "Unleash C4 DSL authoring.",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rvr06/cornifer.git"
+    },
+    "homepage": "https://github.com/rvr06/cornifer#readme",
+    "devDependencies": {
+        "autoprefixer": "^10.4.12",
+        "postcss": "^8.4.17",
+        "postcss-cli": "^10.0.0"
+    }
+}

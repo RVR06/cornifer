@@ -1,0 +1,22 @@
+services:
+
+  ouroboros:
+    image: daedalus.azurecr.io/ouroboros:1.0.0
+    build:
+      context: .
+      dockerfile: App.Ouroboros/Dockerfile
+    volumes:
+      - data
+      - ./logs:/home/app/logs:ro
+
+  redis:
+    image: redis:latest
+
+  traceview:
+    image: docker.io/rogeralsing/traceview:amd64
+
+  plantuml-server:
+    image: plantuml/plantuml-server:tomcat
+
+volumes:
+  data:

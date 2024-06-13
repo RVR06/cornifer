@@ -1,0 +1,1727 @@
+{
+    "scopeName": "source.c4",
+    "patterns": [
+        {
+            "include": "#comment"
+        },
+        {
+            "include": "#constant"
+        },
+        {
+            "include": "#workspace"
+        },
+        {
+            "include": "#workspace_2"
+        }
+    ],
+    "repository": {
+        "workspace": {
+            "name": "meta.workspace",
+            "begin": "(?i)(\\s*)(workspace)(\\s+)\"(.*?)\"(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.workspace"
+                },
+                "4": {
+                    "name": "string.name"
+                },
+                "6": {
+                    "name": "string.description"
+                },
+                "8": {
+                    "name": "keyword.workspace"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.workspace"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#constant"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#model"
+                },
+                {
+                    "include": "#views"
+                },
+                {
+                    "include": "#configuration"
+                }
+            ]
+        },
+        "workspace_2": {
+            "name": "meta.workspace",
+            "begin": "(?i)(\\s*)(workspace)(\\s+)(extends)(\\s+)(.*\\.dsl)(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.workspace"
+                },
+                "4": {
+                    "name": "keyword.section"
+                },
+                "6": {
+                    "name": "string.link"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.workspace"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#constant"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#model"
+                },
+                {
+                    "include": "#views"
+                },
+                {
+                    "include": "#configuration"
+                }
+            ]
+        },
+        "comment": {
+            "name": "string.comment",
+            "match": "(?i)(\\s*)#(.*?)\n"
+        },
+        "constant": {
+            "name": "meta.mark",
+            "match": "(?i)(\\s*)(!)((?!ref|include)\\w+)(\\s+)(\\w+)((\\s+)\"(.*?)\")*",
+            "captures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "5": {
+                    "name": "string.name"
+                },
+                "8": {
+                    "name": "string.description"
+                }
+            }
+        },
+        "include": {
+            "name": "meta.include",
+            "match": "(?i)(\\s*)(!include)(\\s+)(.*)",
+            "captures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "4": {
+                    "name": "string.link"
+                }
+            }
+        },
+        "tags": {
+            "name": "meta.tags",
+            "match": "(?i)(\\s*)(tags)(\\s+)(.+)",
+            "captures": {
+                "4": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "ref": {
+            "name": "meta.ref",
+            "begin": "(?i)(\\s*)(!ref)(\\s+)(.*?)(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.reference"
+                },
+                "4": {
+                    "name": "entity.name.reference"
+                },
+                "6": {
+                    "name": "keyword.reference"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.reference"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#tags"
+                },
+                {
+                    "include": "#container"
+                },
+                {
+                    "include": "#container_oneliner"
+                },
+                {
+                    "include": "#component"
+                },
+                {
+                    "include": "#component_oneliner"
+                }
+            ]
+        },
+        "url": {
+            "name": "meta.url",
+            "match": "(?i)(\\s*)(url)(\\s+)(.*?)"
+        },
+        "healthCheck": {
+            "name": "meta.healthCheck",
+            "match": "(?i)(\\s*)(healthCheck)(\\s+)\"(.*?)\"(\\s+)(.*?)(\\s+)(\\d+)(\\s+)(\\d+)",
+            "captures": {
+                "4": {
+                    "name": "string.description"
+                },
+                "8": {
+                    "name": "constant.numeric.instances"
+                },
+                "10": {
+                    "name": "constant.numeric.instances"
+                }
+            }
+        },
+        "configuration": {
+            "name": "meta.configuration",
+            "begin": "configuration \\{",
+            "end": "\\}",
+            "beginCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                }
+            ]
+        },
+        "model": {
+            "name": "meta.model",
+            "begin": "model \\{",
+            "end": "\\}",
+            "beginCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#person"
+                },
+                {
+                    "include": "#person_oneliner"
+                },
+                {
+                    "include": "#enterprise"
+                },
+                {
+                    "include": "#group"
+                },
+                {
+                    "include": "#softwareSystem"
+                },
+                {
+                    "include": "#softwareSystem_oneliner"
+                },
+                {
+                    "include": "#relationship"
+                },
+                {
+                    "include": "#deploymentEnvironment"
+                },
+                {
+                    "include": "#include"
+                },
+                {
+                    "include": "#ref"
+                }
+            ]
+        },
+        "perspectives": {
+            "name": "meta.perspectives",
+            "begin": "(?i)(\\s*)(perspectives)(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "4": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#perspective"
+                }
+            ]
+        },
+        "perspective": {
+            "name": "meta.perspective",
+            "match": "(?i)(\\s*)(\\w+)(\\s+)\"(.*?)\"",
+            "captures": {
+                "4": {
+                    "name": "string.description"
+                }
+            }
+        },
+        "person": {
+            "name": "meta.person",
+            "begin": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(person)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.person"
+                },
+                "4": {
+                    "name": "keyword.person"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "string.tag"
+                },
+                "14": {
+                    "name": "keyword.person"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.person"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#implicit_relationship"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#perspectives"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                },
+                {
+                    "include": "#tags"
+                }
+            ]
+        },
+        "person_oneliner": {
+            "name": "meta.person",
+            "match": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(person)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*",
+            "captures": {
+                "2": {
+                    "name": "entity.name.person"
+                },
+                "4": {
+                    "name": "keyword.person"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "enterprise": {
+            "name": "meta.enterprise",
+            "begin": "(?i)(\\s*)(enterprise)(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.enterprise"
+                },
+                "4": {
+                    "name": "string.name"
+                },
+                "6": {
+                    "name": "keyword.enterprise"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.enterprise"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#person"
+                },
+                {
+                    "include": "#person_oneliner"
+                },
+                {
+                    "include": "#softwareSystem"
+                },
+                {
+                    "include": "#softwareSystem_oneliner"
+                },
+                {
+                    "include": "#group"
+                },
+                {
+                    "include": "#relationship"
+                },
+                {
+                    "include": "#include"
+                },
+                {
+                    "include": "#ref"
+                }
+            ]
+        },
+        "group": {
+            "name": "meta.group",
+            "begin": "(?i)(\\s*)(group)(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.group"
+                },
+                "4": {
+                    "name": "string.name"
+                },
+                "6": {
+                    "name": "keyword.group"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.group"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#person"
+                },
+                {
+                    "include": "#person_oneliner"
+                },
+                {
+                    "include": "#softwareSystem"
+                },
+                {
+                    "include": "#softwareSystem_oneliner"
+                },
+                {
+                    "include": "#relationship"
+                },
+                {
+                    "include": "#include"
+                }
+            ]
+        },
+        "group_1": {
+            "name": "meta.group",
+            "begin": "(?i)(\\s*)(group)(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.group"
+                },
+                "4": {
+                    "name": "string.name"
+                },
+                "6": {
+                    "name": "keyword.group"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.group"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#container"
+                },
+                {
+                    "include": "#container_oneliner"
+                },
+                {
+                    "include": "#relationship"
+                },
+                {
+                    "include": "#include"
+                }
+            ]
+        },
+        "group_2": {
+            "name": "meta.group",
+            "begin": "(?i)(\\s*)(group)(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.group"
+                },
+                "4": {
+                    "name": "string.name"
+                },
+                "6": {
+                    "name": "keyword.group"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.group"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#component"
+                },
+                {
+                    "include": "#component_oneliner"
+                },
+                {
+                    "include": "#relationship"
+                },
+                {
+                    "include": "#include"
+                }
+            ]
+        },
+        "softwareSystem": {
+            "name": "meta.softwareSystem",
+            "begin": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(softwareSystem)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "4": {
+                    "name": "keyword.softwareSystem"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "string.tag"
+                },
+                "14": {
+                    "name": "keyword.softwareSystem"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.softwareSystem"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#container"
+                },
+                {
+                    "include": "#container_oneliner"
+                },
+                {
+                    "include": "#relationship"
+                },
+                {
+                    "include": "#implicit_relationship"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#perspectives"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                },
+                {
+                    "include": "#technology"
+                },
+                {
+                    "include": "#tags"
+                },
+                {
+                    "include": "#group_1"
+                }
+            ]
+        },
+        "softwareSystem_oneliner": {
+            "name": "meta.softwareSystem",
+            "match": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(softwareSystem)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*(\\s*)",
+            "captures": {
+                "2": {
+                    "name": "entity.name.softwareSystem"
+                },
+                "4": {
+                    "name": "keyword.softwareSystem"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "container": {
+            "name": "meta.container",
+            "begin": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(container)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.container"
+                },
+                "4": {
+                    "name": "keyword.container"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "string.technology"
+                },
+                "15": {
+                    "name": "string.tag"
+                },
+                "17": {
+                    "name": "keyword.container"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.container"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#component"
+                },
+                {
+                    "include": "#component_oneliner"
+                },
+                {
+                    "include": "#relationship"
+                },
+                {
+                    "include": "#implicit_relationship"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#perspectives"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                },
+                {
+                    "include": "#technology"
+                },
+                {
+                    "include": "#tags"
+                },
+                {
+                    "include": "#group_2"
+                }
+            ]
+        },
+        "container_oneliner": {
+            "name": "meta.container",
+            "match": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(container)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*(\\s*)",
+            "captures": {
+                "2": {
+                    "name": "entity.name.container"
+                },
+                "4": {
+                    "name": "keyword.container"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "string.technology"
+                },
+                "15": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "component": {
+            "name": "meta.component",
+            "begin": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(component)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.component"
+                },
+                "4": {
+                    "name": "keyword.component"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "string.technology"
+                },
+                "15": {
+                    "name": "string.tag"
+                },
+                "17": {
+                    "name": "keyword.component"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.component"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#perspectives"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                },
+                {
+                    "include": "#technology"
+                },
+                {
+                    "include": "#tags"
+                },
+                {
+                    "include": "#implicit_relationship"
+                }
+            ]
+        },
+        "component_oneliner": {
+            "name": "meta.component",
+            "match": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(component)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*(\\s*)",
+            "captures": {
+                "2": {
+                    "name": "entity.name.component"
+                },
+                "4": {
+                    "name": "keyword.component"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "string.technology"
+                },
+                "15": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "deploymentEnvironment": {
+            "name": "meta.deploymentEnvironment",
+            "begin": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(deploymentEnvironment)(\\s+)\"(.*?)\"(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.deploymentEnvironment"
+                },
+                "4": {
+                    "name": "keyword.deploymentEnvironment"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "8": {
+                    "name": "keyword.deploymentEnvironment"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.deploymentEnvironment"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#deploymentGroup"
+                },
+                {
+                    "include": "#deploymentNode"
+                },
+                {
+                    "include": "#relationship"
+                }
+            ]
+        },
+        "deploymentNode": {
+            "name": "meta.deploymentNode",
+            "begin": "(?i)(\\s*)((\\w+)(\\s*=\\s*))*(deploymentNode)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)(\\d+))*)*)*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "3": {
+                    "name": "entity.name.deploymentNode"
+                },
+                "5": {
+                    "name": "keyword.deploymentNode"
+                },
+                "7": {
+                    "name": "string.name"
+                },
+                "10": {
+                    "name": "string.description"
+                },
+                "13": {
+                    "name": "string.technology"
+                },
+                "16": {
+                    "name": "string.tag"
+                },
+                "19": {
+                    "name": "constant.numeric.instances"
+                },
+                "21": {
+                    "name": "keyword.deploymentNode"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.deploymentNode"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#deploymentNode"
+                },
+                {
+                    "include": "#containerInstance"
+                },
+                {
+                    "include": "#containerInstance_oneliner"
+                },
+                {
+                    "include": "#softwareSystemInstance"
+                },
+                {
+                    "include": "#softwareSystemInstance_oneliner"
+                },
+                {
+                    "include": "#infrastructureNode"
+                },
+                {
+                    "include": "#infrastructureNode_oneliner"
+                },
+                {
+                    "include": "#relationship"
+                },
+                {
+                    "include": "#implicit_relationship"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#perspectives"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                },
+                {
+                    "include": "#technology"
+                },
+                {
+                    "include": "#tags"
+                }
+            ]
+        },
+        "deploymentGroup": {
+            "name": "meta.deploymentGroup",
+            "match": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(deploymentGroup)(\\s+)\"(.*?)\"",
+            "captures": {
+                "2": {
+                    "name": "entity.name.deploymentGroup"
+                },
+                "4": {
+                    "name": "keyword.deploymentGroup"
+                },
+                "6": {
+                    "name": "string.name"
+                }
+            }
+        },
+        "infrastructureNode": {
+            "name": "meta.infrastructureNode",
+            "begin": "(?i)(\\s*)((\\w+)(\\s*=\\s*))*(infrastructureNode)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "3": {
+                    "name": "entity.name.infrastructureNode"
+                },
+                "5": {
+                    "name": "keyword.infrastructureNode"
+                },
+                "7": {
+                    "name": "string.name"
+                },
+                "10": {
+                    "name": "string.description"
+                },
+                "13": {
+                    "name": "string.technology"
+                },
+                "16": {
+                    "name": "string.tag"
+                },
+                "18": {
+                    "name": "keyword.infrastructureNode"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.infrastructureNode"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#implicit_relationship"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#description"
+                },
+                {
+                    "include": "#technology"
+                },
+                {
+                    "include": "#tags"
+                }
+            ]
+        },
+        "infrastructureNode_oneliner": {
+            "name": "meta.infrastructureNode",
+            "match": "(?i)(\\s*)((\\w+)(\\s*=\\s*))*(infrastructureNode)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*(\\s*)",
+            "captures": {
+                "3": {
+                    "name": "entity.name.infrastructureNode"
+                },
+                "5": {
+                    "name": "keyword.infrastructureNode"
+                },
+                "7": {
+                    "name": "string.name"
+                },
+                "10": {
+                    "name": "string.description"
+                },
+                "13": {
+                    "name": "string.technology"
+                },
+                "16": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "softwareSystemInstance": {
+            "name": "meta.softwareSystemInstance",
+            "begin": "(?i)(\\s*)((\\w+)(\\s*=\\s*))*(softwareSystemInstance)(\\s+)(\\w+)(\\s+)(((\"\")|([^\"]))((\\s+)\"(.*?)\")*)*(\\s*)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "3": {
+                    "name": "entity.name.softwareSystemInstance"
+                },
+                "5": {
+                    "name": "keyword.softwareSystemInstance"
+                },
+                "11": {
+                    "name": "entity.name.deploymentGroup"
+                },
+                "15": {
+                    "name": "string.tag"
+                },
+                "17": {
+                    "name": "keyword.softwareSystemInstance"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.softwareSystemInstance"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#healthCheck"
+                },
+                {
+                    "include": "#implicit_relationship"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#perspectives"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#tags"
+                }
+            ]
+        },
+        "softwareSystemInstance_oneliner": {
+            "name": "meta.softwareSystemInstance",
+            "match": "(?i)(\\s*)((\\w+)(\\s*=\\s*))*(softwareSystemInstance)(\\s+)(\\w+)(\\s+)(((\"\")|([^\"]))((\\s+)\"(.*?)\")*)*(\\s*)",
+            "captures": {
+                "3": {
+                    "name": "entity.name.softwareSystemInstance"
+                },
+                "5": {
+                    "name": "keyword.softwareSystemInstance"
+                },
+                "11": {
+                    "name": "entity.name.deploymentGroup"
+                },
+                "15": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "containerInstance": {
+            "name": "meta.containerInstance",
+            "begin": "(?i)(\\s*)((\\w+)(\\s*=\\s*))*(containerInstance)(\\s+)(\\w+).(\\w+)(\\s+)(((\"\")|([^\"]))((\\s+)\"(.*?)\")*)*(\\s*)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "3": {
+                    "name": "entity.name.containerInstance"
+                },
+                "5": {
+                    "name": "keyword.containerInstance"
+                },
+                "12": {
+                    "name": "entity.name.deploymentGroup"
+                },
+                "16": {
+                    "name": "string.tag"
+                },
+                "18": {
+                    "name": "keyword.containerInstance"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.containerInstance"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#healthCheck"
+                },
+                {
+                    "include": "#implicit_relationship"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#perspectives"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#tags"
+                }
+            ]
+        },
+        "containerInstance_oneliner": {
+            "name": "meta.containerInstance",
+            "match": "(?i)(\\s*)((\\w+)(\\s*=\\s*))*(containerInstance)(\\s+)(\\w+).(\\w+)(\\s+)(((\"\")|([^\"]))((\\s+)\"(.*?)\")*)*(\\s*)",
+            "captures": {
+                "3": {
+                    "name": "entity.name.containerInstance"
+                },
+                "5": {
+                    "name": "keyword.containerInstance"
+                },
+                "12": {
+                    "name": "entity.name.deploymentGroup"
+                },
+                "16": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "relationship": {
+            "name": "meta.relationship",
+            "match": "(?i)(\\s*)(.*?)(\\s+->\\s+)(.*?)(\\s+)(\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*",
+            "captures": {
+                "7": {
+                    "name": "string.description"
+                },
+                "10": {
+                    "name": "string.technology"
+                },
+                "13": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "implicit_relationship": {
+            "name": "meta.relationship",
+            "match": "(?i)(\\s+->\\s+)(.*?)(\\s+)(\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*",
+            "captures": {
+                "5": {
+                    "name": "string.description"
+                },
+                "8": {
+                    "name": "string.technology"
+                },
+                "11": {
+                    "name": "string.tag"
+                }
+            }
+        },
+        "theme": {
+            "name": "meta.theme",
+            "match": "(?i)(\\s*)(theme)(\\s+)(.*?)",
+            "captures": {
+                "2": {
+                    "name": "keyword.section"
+                }
+            }
+        },
+        "properties": {
+            "name": "meta.properties",
+            "begin": "(?i)(\\s*)(properties)(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "4": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                }
+            ]
+        },
+        "styles": {
+            "name": "meta.styles",
+            "begin": "(?i)(\\s*)(styles)(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "4": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#styles_element"
+                },
+                {
+                    "include": "#styles_relationship"
+                }
+            ]
+        },
+        "styles_element": {
+            "name": "meta.styles.element",
+            "begin": "(?i)(\\s*)(element)(\\s+)(\"(.*?)\"|([^\\s]*))(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "5": {
+                    "name": "string.tag"
+                },
+                "6": {
+                    "name": "string.tag"
+                },
+                "8": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                }
+            ]
+        },
+        "styles_relationship": {
+            "name": "meta.styles.relationship",
+            "begin": "(?i)(\\s*)(relationship)(\\s+)(\"(.*?)\"|([^\\s]*))(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "5": {
+                    "name": "string.tag"
+                },
+                "6": {
+                    "name": "string.tag"
+                },
+                "8": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                }
+            ]
+        },
+        "branding": {
+            "name": "meta.branding",
+            "begin": "(?i)(\\s*)(branding)(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "4": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#logo"
+                }
+            ]
+        },
+        "logo": {
+            "name": "meta.logo",
+            "match": "(?i)(\\s*)(logo)(\\s+)(.*?)"
+        },
+        "views": {
+            "name": "meta.views",
+            "begin": "views \\{",
+            "end": "\\}",
+            "beginCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#theme"
+                },
+                {
+                    "include": "#branding"
+                },
+                {
+                    "include": "#styles"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#view_systemLandscape"
+                },
+                {
+                    "include": "#view_systemContext"
+                },
+                {
+                    "include": "#view_container"
+                },
+                {
+                    "include": "#view_component"
+                },
+                {
+                    "include": "#view_deployment"
+                },
+                {
+                    "include": "#view_dynamic"
+                },
+                {
+                    "include": "#view_filtered"
+                },
+                {
+                    "include": "#include"
+                }
+            ]
+        },
+        "animation": {
+            "name": "meta.animation",
+            "begin": "(?i)(\\s*)(animation)(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "4": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            }
+        },
+        "view_systemLandscape": {
+            "name": "meta.view.systemLandscape",
+            "begin": "(?i)(\\s*)(systemLandscape)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.systemLandscape"
+                },
+                "4": {
+                    "name": "string.name"
+                },
+                "7": {
+                    "name": "string.description"
+                },
+                "9": {
+                    "name": "keyword.systemLandscape"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.systemLandscape"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#animation"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                }
+            ]
+        },
+        "view_systemContext": {
+            "name": "meta.view.systemContext",
+            "begin": "(?i)(\\s*)(systemContext)(\\s+)(\\w+)((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.softwareSystem"
+                },
+                "7": {
+                    "name": "string.name"
+                },
+                "10": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "keyword.softwareSystem"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.softwareSystem"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#animation"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                }
+            ]
+        },
+        "view_container": {
+            "name": "meta.view.container",
+            "begin": "(?i)(\\s*)(container)(\\s+)(\\w+)((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.container"
+                },
+                "7": {
+                    "name": "string.name"
+                },
+                "10": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "keyword.container"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.container"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#animation"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                }
+            ]
+        },
+        "view_component": {
+            "name": "meta.view.component",
+            "begin": "(?i)(\\s*)(component)(\\s+)(\\w+).(\\w+)((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.component"
+                },
+                "8": {
+                    "name": "string.name"
+                },
+                "11": {
+                    "name": "string.description"
+                },
+                "13": {
+                    "name": "keyword.component"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.component"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#animation"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                }
+            ]
+        },
+        "view_filtered": {
+            "name": "meta.view.filtered",
+            "match": "(?i)(\\s*)(filtered)(\\s+)\"(.*?)\"(\\s+)(include|exclude)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*",
+            "captures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "4": {
+                    "name": "string.name"
+                },
+                "6": {
+                    "name": "keyword.section"
+                },
+                "8": {
+                    "name": "string.tag"
+                },
+                "11": {
+                    "name": "string.name"
+                },
+                "14": {
+                    "name": "string.description"
+                }
+            }
+        },
+        "view_deployment": {
+            "name": "meta.view.deployment",
+            "begin": "(?i)(\\s*)(deployment)(\\s+)(.*?)(\\s+)(.*?)((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.deploymentEnvironment"
+                },
+                "9": {
+                    "name": "string.name"
+                },
+                "12": {
+                    "name": "string.description"
+                },
+                "14": {
+                    "name": "keyword.deploymentEnvironment"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.deploymentEnvironment"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#animation"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                }
+            ]
+        },
+        "view_dynamic": {
+            "name": "meta.view.dynamic",
+            "begin": "(?i)(\\s*)(dynamic)(\\s+)((\\*)|(\\w+(.(\\w+))*))((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                },
+                "11": {
+                    "name": "string.name"
+                },
+                "14": {
+                    "name": "string.description"
+                },
+                "16": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#view_serial_pipe"
+                },
+                {
+                    "include": "#view_parallel_pipe"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                }
+            ]
+        },
+        "view_serial_pipe": {
+            "name": "meta.view.pipes.serial",
+            "match": "(?i)(\\s*)(\\w+(.\\w+)(.\\w+)*)*(\\s+->\\s+)(\\w+(.\\w+)(.\\w+)*)*((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*",
+            "captures": {
+                "11": {
+                    "name": "string.description"
+                },
+                "14": {
+                    "name": "string.technology"
+                }
+            }
+        },
+        "view_parallel_pipe": {
+            "name": "meta.view.pipes.parallel",
+            "begin": "(?i)(\\s*)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.section"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.section"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#view_serial_pipe"
+                }
+            ]
+        },
+        "description": {
+            "name": "meta.description",
+            "match": "(?i)(\\s*)(description)(\\s+)\"(.*?)\"",
+            "captures": {
+                "4": {
+                    "name": "string.description"
+                }
+            }
+        },
+        "technology": {
+            "name": "meta.technology",
+            "match": "(?i)(\\s*)(technology)(\\s+)\"(.*?)\"",
+            "captures": {
+                "4": {
+                    "name": "string.technology"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,469 @@
+{
+    "name": "workspace",
+    "kind": "1",
+    "range": "[5.0, 246.0]",
+    "children": [
+        {
+            "name": "model",
+            "kind": "1",
+            "range": "[9.1, 164.1]",
+            "children": [
+                {
+                    "name": "matt",
+                    "kind": "13",
+                    "range": "[10.0, 10.106]",
+                    "children": []
+                },
+                {
+                    "name": "simon",
+                    "kind": "13",
+                    "range": "[11.0, 11.76]",
+                    "children": []
+                },
+                {
+                    "name": "enterprise",
+                    "kind": "1",
+                    "range": "[13.2, 45.2]",
+                    "children": [
+                        {
+                            "name": "mila",
+                            "kind": "7",
+                            "range": "[14.3, 41.3]",
+                            "children": [
+                                {
+                                    "name": "spa",
+                                    "kind": "7",
+                                    "range": "[15.4, 19.4]",
+                                    "children": [
+                                        {
+                                            "name": "perspectives",
+                                            "kind": "20",
+                                            "range": "[16.5, 18.5]",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "mobile",
+                                    "kind": "7",
+                                    "range": "[20.4, 30.4]",
+                                    "children": [
+                                        {
+                                            "name": "perspectives",
+                                            "kind": "20",
+                                            "range": "[21.5, 23.5]",
+                                            "children": []
+                                        },
+                                        {
+                                            "name": "acquisition",
+                                            "kind": "7",
+                                            "range": "[24.5, 25.5]",
+                                            "children": []
+                                        },
+                                        {
+                                            "name": "preparation",
+                                            "kind": "7",
+                                            "range": "[26.5, 27.5]",
+                                            "children": []
+                                        },
+                                        {
+                                            "name": "uploading",
+                                            "kind": "7",
+                                            "range": "[28.5, 29.5]",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "api",
+                                    "kind": "7",
+                                    "range": "[31.4, 35.4]",
+                                    "children": [
+                                        {
+                                            "name": "perspectives",
+                                            "kind": "20",
+                                            "range": "[32.5, 34.5]",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "store",
+                                    "kind": "7",
+                                    "range": "[36.4, 40.4]",
+                                    "children": [
+                                        {
+                                            "name": "perspectives",
+                                            "kind": "20",
+                                            "range": "[37.5, 39.5]",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "vrxp",
+                            "kind": "7",
+                            "range": "[42.3, 44.3]",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "!include",
+                    "kind": "11",
+                    "range": "[63.0, 63.45]",
+                    "children": []
+                },
+                {
+                    "name": "!ref",
+                    "kind": "11",
+                    "range": "[65.2, 67.2]",
+                    "children": []
+                },
+                {
+                    "name": "dev_",
+                    "kind": "4",
+                    "range": "[71.2, 101.2]",
+                    "children": [
+                        {
+                            "name": "deploymentNode",
+                            "kind": "10",
+                            "range": "[72.3, 100.3]",
+                            "children": [
+                                {
+                                    "name": "deploymentNode",
+                                    "kind": "10",
+                                    "range": "[74.4, 77.4]",
+                                    "children": [
+                                        {
+                                            "name": "spa_",
+                                            "kind": "12",
+                                            "range": "[75.5, 76.5]",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "vrxp_",
+                                    "kind": "12",
+                                    "range": "[79.4, 80.4]",
+                                    "children": []
+                                },
+                                {
+                                    "name": "deploymentNode",
+                                    "kind": "10",
+                                    "range": "[82.4, 85.4]",
+                                    "children": [
+                                        {
+                                            "name": "mobile_",
+                                            "kind": "12",
+                                            "range": "[83.5, 84.5]",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "deploymentNode",
+                                    "kind": "10",
+                                    "range": "[87.4, 99.4]",
+                                    "children": [
+                                        {
+                                            "name": "deploymentNode",
+                                            "kind": "10",
+                                            "range": "[88.5, 92.5]",
+                                            "children": [
+                                                {
+                                                    "name": "api_",
+                                                    "kind": "12",
+                                                    "range": "[89.6, 91.6]",
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "deploymentNode",
+                                            "kind": "10",
+                                            "range": "[94.5, 98.5]",
+                                            "children": [
+                                                {
+                                                    "name": "store_",
+                                                    "kind": "12",
+                                                    "range": "[96.6, 97.6]",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "prod_",
+                    "kind": "4",
+                    "range": "[103.2, 163.2]",
+                    "children": [
+                        {
+                            "name": "worker1_",
+                            "kind": "17",
+                            "range": "[104.0, 104.41]",
+                            "children": []
+                        },
+                        {
+                            "name": "worker2_",
+                            "kind": "17",
+                            "range": "[105.0, 105.41]",
+                            "children": []
+                        },
+                        {
+                            "name": "ws_",
+                            "kind": "10",
+                            "range": "[107.3, 113.3]",
+                            "children": [
+                                {
+                                    "name": "browser_",
+                                    "kind": "10",
+                                    "range": "[109.4, 112.4]",
+                                    "children": [
+                                        {
+                                            "name": "spa_",
+                                            "kind": "12",
+                                            "range": "[110.5, 111.5]",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "deploymentNode",
+                            "kind": "10",
+                            "range": "[114.3, 117.3]",
+                            "children": [
+                                {
+                                    "name": "vrxp_",
+                                    "kind": "12",
+                                    "range": "[115.4, 116.4]",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "phone_",
+                            "kind": "10",
+                            "range": "[119.3, 122.3]",
+                            "children": [
+                                {
+                                    "name": "mobile_",
+                                    "kind": "12",
+                                    "range": "[120.4, 121.4]",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "backend_",
+                            "kind": "10",
+                            "range": "[124.3, 156.3]",
+                            "children": [
+                                {
+                                    "name": "gateway_",
+                                    "kind": "15",
+                                    "range": "[125.0, 125.121]",
+                                    "children": []
+                                },
+                                {
+                                    "name": "w01_",
+                                    "kind": "10",
+                                    "range": "[127.4, 140.4]",
+                                    "children": [
+                                        {
+                                            "name": "k8s_",
+                                            "kind": "10",
+                                            "range": "[128.5, 139.5]",
+                                            "children": [
+                                                {
+                                                    "name": "docker_",
+                                                    "kind": "10",
+                                                    "range": "[129.6, 132.6]",
+                                                    "children": [
+                                                        {
+                                                            "name": "api_",
+                                                            "kind": "12",
+                                                            "range": "[130.7, 131.7]",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "deploymentNode",
+                                                    "kind": "10",
+                                                    "range": "[134.6, 138.6]",
+                                                    "children": [
+                                                        {
+                                                            "name": "store_",
+                                                            "kind": "12",
+                                                            "range": "[136.7, 137.7]",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "w02_",
+                                    "kind": "10",
+                                    "range": "[142.4, 155.4]",
+                                    "children": [
+                                        {
+                                            "name": "k8s_",
+                                            "kind": "10",
+                                            "range": "[143.5, 154.5]",
+                                            "children": [
+                                                {
+                                                    "name": "docker_",
+                                                    "kind": "10",
+                                                    "range": "[144.6, 147.6]",
+                                                    "children": [
+                                                        {
+                                                            "name": "api_",
+                                                            "kind": "12",
+                                                            "range": "[145.7, 146.7]",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "deploymentNode",
+                                                    "kind": "10",
+                                                    "range": "[149.6, 153.6]",
+                                                    "children": [
+                                                        {
+                                                            "name": "store_",
+                                                            "kind": "12",
+                                                            "range": "[151.7, 152.7]",
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "views",
+            "kind": "1",
+            "range": "[166.1, 245.1]",
+            "children": [
+                {
+                    "name": "theme",
+                    "kind": "25",
+                    "range": "[167.0, 167.96]",
+                    "children": []
+                },
+                {
+                    "name": "!include",
+                    "kind": "11",
+                    "range": "[169.0, 169.45]",
+                    "children": []
+                },
+                {
+                    "name": "systemLandscape",
+                    "kind": "22",
+                    "range": "[172.2, 175.2]",
+                    "children": []
+                },
+                {
+                    "name": "mila",
+                    "kind": "22",
+                    "range": "[178.2, 181.2]",
+                    "children": []
+                },
+                {
+                    "name": "mila",
+                    "kind": "22",
+                    "range": "[184.2, 194.2]",
+                    "children": []
+                },
+                {
+                    "name": "Container",
+                    "kind": "22",
+                    "range": "[196.0, 196.66]",
+                    "children": []
+                },
+                {
+                    "name": "Container",
+                    "kind": "22",
+                    "range": "[197.0, 197.99]",
+                    "children": []
+                },
+                {
+                    "name": "Container",
+                    "kind": "22",
+                    "range": "[198.0, 198.53]",
+                    "children": []
+                },
+                {
+                    "name": "mila.mobile",
+                    "kind": "22",
+                    "range": "[201.2, 204.2]",
+                    "children": []
+                },
+                {
+                    "name": "mila",
+                    "kind": "22",
+                    "range": "[207.2, 212.2]",
+                    "children": []
+                },
+                {
+                    "name": "mila",
+                    "kind": "22",
+                    "range": "[214.2, 226.2]",
+                    "children": []
+                },
+                {
+                    "name": "dev_",
+                    "kind": "22",
+                    "range": "[229.2, 232.2]",
+                    "children": []
+                },
+                {
+                    "name": "prod_",
+                    "kind": "22",
+                    "range": "[234.2, 237.2]",
+                    "children": []
+                },
+                {
+                    "name": "styles",
+                    "kind": "25",
+                    "range": "[239.2, 244.2]",
+                    "children": [
+                        {
+                            "name": "element",
+                            "kind": "7",
+                            "range": "[240.3, 241.3]",
+                            "children": []
+                        },
+                        {
+                            "name": "relationship",
+                            "kind": "9",
+                            "range": "[242.3, 243.3]",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

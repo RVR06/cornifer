@@ -1,0 +1,86 @@
+baseURL = "/"
+title = "CORNIFER"
+
+enableEmoji = true
+
+# When enable will give values to .Lastmod etc.
+# Will probably not work with the current build setup
+enableGitInfo = false
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+# Highlighting config
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+# Use the new Chroma Go highlighter in Hugo.
+pygmentsUseClassic = false
+
+[markup]
+[markup.highlight]
+guessSyntax = "false"
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+copyright = 'Licensed under MIT License.'
+offlineSearch = true
+github_repo = "https://github.com/rvr06/cornifer"
+github_subdir = "docs"
+contentDir = "content"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+[params.structurizr]
+server = "https://structurizr.com"
+
+[params.plantuml]
+enable = true
+svg = true
+
+[params.mermaid]
+enable = true
+fontFamily = "Montserrat"
+
+[params.mermaid.flowchart]
+diagramPadding = 6
+
+[params.ui]
+navbar_logo = true
+sidebar_menu_compact = true
+sidebar_search_disable = true
+
+[params.links]
+# End user relevant links. These will show up on left side of footer and in the community page if you have one.
+[[params.links.user]]
+name = "Community"
+url = "https://github.com/rvr06/cornifer/discussions"
+icon = "fa-solid fa-comments"
+desc = "Discuss with community."
+# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
+[[params.links.developer]]
+name = "GitHub"
+url = "https://github.com/rvr06/cornifer"
+icon = "fab fa-github"
+desc = "Contribution takes place here!"
+
+[module]
+[module.hugoVersion]
+extended = true
+min = "0.75.0"
+[[module.imports]]
+path = "github.com/google/docsy"
+disable = false
+[[module.imports]]
+path = "github.com/google/docsy/dependencies"
+disable = false
+# https://gohugo.io/hugo-modules/configuration/#module-config-mounts
+[[module.mounts]]
+source = 'static/'
+target = 'static/'
+# Comment to speed up HUGO build by bypassing Structurizr assets
+# [[module.mounts]]
+#   source = 'sub/structurizrjs/src/'
+#   target = 'static/structurizrjs/src/'

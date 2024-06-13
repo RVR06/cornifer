@@ -1,0 +1,21 @@
+services:
+
+  ouroboros:
+    image: daedalus.azurecr.io/ouroboros:1.0.0
+    build:
+      context: .
+      dockerfile: App.Ouroboros/Dockerfile
+    depends_on:
+      - traceview
+
+  redis:
+    image: redis:latest
+
+  traceview:
+    image: docker.io/rogeralsing/traceview:amd64
+    depends_on:
+      - redis
+      - plantuml-server
+
+  plantuml-server:
+    image: plantuml/plantuml-server:tomcat

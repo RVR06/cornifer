@@ -1,0 +1,16 @@
+services:
+
+  ouroboros:
+    image: daedalus.azurecr.io/ouroboros:1.0.0
+    build:
+      context: .
+      dockerfile: App.Ouroboros/Dockerfile
+
+  postgres:
+      image: postgres:16.2-alpine3.19
+      
+  tracelens:
+      image: docker.io/rogeralsing/tracelens
+
+  plantuml-server:
+      image: plantuml/plantuml-server:tomcat

@@ -1,0 +1,17 @@
+services:
+  aaa:
+    image: aaa:1.2.3
+    depends_on:
+      bbb:
+        condition: service_healthy
+      ccc:
+        condition: service_healthy
+
+  bbb:
+    image: bbb:1.2.3
+    depends_on:
+      ccc:
+        condition: service_healthy
+
+  ccc:
+    image: bbb:1.2.3
