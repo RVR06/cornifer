@@ -1,10 +1,9 @@
+name: Create Release
+
 on:
   push:
-    # Sequence of patterns matched against refs/tags
-    # tags:
-    #   - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
-name: Create Release
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,14 +12,8 @@ jobs:
     env:
       PUSH_PACKAGES: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
-      - name: Install git-lfs
-        run: |
-          sudo apt install -y git-lfs
-
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          lfs: true
 
       - uses: actions/setup-node@v4
         with:
