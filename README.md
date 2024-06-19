@@ -25,42 +25,42 @@ Then, within VSCode, open the `Extensions` view, select for `Install from VSIX` 
 
 <img 
     alt="format"
-    src="https://rvr06.github.io/cornifer/assets/format.gif" />
+    src="https://rvr06.github.io/cornifer/docs/features/format/format.gif" />
 
 ### Syntax highlighting
 
 <img 
     alt="highlighting"
-    src="https://rvr06.github.io/cornifer/assets/highlighting.gif" />
+    src="https://rvr06.github.io/cornifer/docs/features/highlighting/highlighting.gif" />
 
 ### Semantic highlighting
 
 <img 
     alt="semantic"
-    src="https://rvr06.github.io/cornifer/assets/semantic.gif" />
+    src="https://rvr06.github.io/cornifer/docs/features/semantic/semantic.gif" />
 
 ### Code completion
 
 <img 
     alt="completion"
-    src="https://rvr06.github.io/cornifer/assets/completion.gif" />
+    src="https://rvr06.github.io/cornifer/docs/features/intellisense/intellisense.gif" />
 
 ### Hover
 
 <img 
     alt="hover"
-    src="https://rvr06.github.io/cornifer/assets/hover.png" />
+    src="https://rvr06.github.io/cornifer/docs/features/hover/hover.png" />
 
 ### Live preview
 
 <img 
     alt="preview"
-    src="https://rvr06.github.io/cornifer/assets/preview.png" />
+    src="https://rvr06.github.io/cornifer/docs/features/preview/preview.png" />
 
 ### Outline preview
 
-![outline](https://rvr06.github.io/cornifer/assets/breadcrumb.png)
+![outline](https://rvr06.github.io/cornifer/docs/features/breadcrumb/breadcrumb.png)
 
 ### Docker compose transpiler
 
-![transpiler](https://rvr06.github.io/cornifer/assets/transpiler.png)
+![transpiler](https://rvr06.github.io/cornifer/docs/features/transpiler/transpiler.png)

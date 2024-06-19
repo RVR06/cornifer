@@ -10,4 +10,4 @@ date: 2022-01-03
 
 At the time of writing, language server has not been implemented yet, preventing extension to provide error checks. In the meanwhile, a tacit workaround is to assume that if you read/write a line w/o any colors, this line is wrong ie conflicts with the underlying grammar (either misspelled or wrongly placed). [Hover](#hover) facility is at the rescue to provide guidance.
 
-![](/assets/highlighting.gif)
+![](highlighting.gif)

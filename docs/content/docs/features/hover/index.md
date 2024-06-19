@@ -10,4 +10,4 @@ Most of the C4 DSL keywords can be hovered over to gain insights, such as semant
 
 As explained, due to lack of language server, it is the only built-in way to check document compliance. When in doubt, fallback to the [official documentation](https://github.com/structurizr/dsl/blob/master/docs/language-reference.md).
 
-![](/assets/hover.png)
+![](hover.png)
