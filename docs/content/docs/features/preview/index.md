@@ -13,4 +13,4 @@ You are now ready to enter the Edit-Save-Refresh cycle to craft your model.
 
 Structurizr session is provisioned when you hit the preview button, and decommissioned when the workspace.dsl is closed.  
 
-![](/assets/preview.png)
+![](preview.png)

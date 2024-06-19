@@ -10,4 +10,4 @@ date: 2022-02-03
 
 Once again, no proper error checks. In the meanwhile, one could easily spot error by monitoring color - or more accurately, lack of. 
 
-![](/assets/semantic.gif)
+![](semantic.gif)

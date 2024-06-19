@@ -8,4 +8,4 @@ date: 2022-01-15
 
 `Cornifer` comes with a built-in formatting capability, activated on-demand and on-save.
 
-![](/assets/format.gif)
+![](format.gif)

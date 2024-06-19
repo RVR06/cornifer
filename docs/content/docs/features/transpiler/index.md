@@ -16,7 +16,7 @@ Being able to efficiently communicate with devops team is key. To do so, one may
 
 Here comes `Cornifer` and its last `transpiler` feature!
 
-![](/assets/transpiler.png)
+![](transpiler.png)
 
 ---
 
@@ -85,6 +85,4 @@ workspace "compose" "Auto-generated from compose.yaml" {
 ## **Then** user is able to visualize diagram through `Structurizr`
 
 
-![](/assets/transpiler_02.png)
-
-![alt text](image.png)
+![](transpiler_02.png)
