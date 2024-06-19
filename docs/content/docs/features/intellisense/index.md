@@ -12,4 +12,4 @@ Code snippets and code completion serve two purposes: gently supporting newcomer
 
 Once again, without language server, code completion is not contextual for the moment, but it will soon be.
 
-![](completion.gif)
+![](intellisense.gif)
