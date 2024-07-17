@@ -19,6 +19,43 @@ Navigate to the [latest release](https://github.com/rvr06/cornifer/releases/late
 
 Then, within VSCode, open the `Extensions` view, select for `Install from VSIX` from `Views and more actions` button and browse to the `.vsix`.
 
+To automate the installation of the extension in a devcontainer, follow these steps:
+
+1. Place the `.vsix` file in the repository under the `.devcontainer` directory, for example, `.devcontainer/extensions/cornifer-<version>.vsix`.
+
+2. Make the extension available to the devcontainer by adding it as a volume, e.g. in case you use compose add the extention folder als volume in the `docker-compose.yml`:
+
+```yaml
+version: '3'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      # Update this to wherever you want VS Code to mount the folder of your project
+      - ../..:/workspaces:cached
+      # Unpublished extensions
+      - ./extensions:/extensions
+```
+
+3. Finally, install the extension in the devcontainer.json:
+
+```json
+"customizations": {
+    "vscode": {    
+        "extensions": [
+            "/extensions/cornifer-<version>.vsix"
+        ]
+    }
+}
+```
+
+> **Note:** An error may be displayed in the editor indicating that the format for defining the extension is not supported. This is a bug; the format is supported and this will install an extension from the container's filesystem.
+
+
 ## Overview of the extension features
 
 ### Format document
