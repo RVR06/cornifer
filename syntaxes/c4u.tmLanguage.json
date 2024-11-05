@@ -83,6 +83,12 @@
             "include": "source.c4#perspective"
         },
         {
+            "include": "source.c4#element"
+        },
+        {
+            "include": "source.c4#element_oneliner"
+        },
+        {
             "include": "source.c4#person"
         },
         {
