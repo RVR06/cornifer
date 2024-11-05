@@ -23,6 +23,7 @@ const tokenTypes = new Map<string, number>();
 
 const legend = (function () {
 	const tokenTypesLegend = [
+		'element',
 		'person',
 		'softwareSystem',
 		'softwareSystemInstance',

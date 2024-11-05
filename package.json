@@ -11,7 +11,7 @@
 	},
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"publisher": "rvr06",
-	"version": "0.30.0",
+	"version": "0.31.0",
 	"preview": true,
 	"homepage": "https://github.com/rvr06/cornifer/blob/main/README.md",
 	"repository": {
@@ -279,6 +279,24 @@
 						},
 						{
 							"scope": [
+								"keyword.custom",
+								"keyword.element"
+							],
+							"settings": {
+								"foreground": "#FF006E",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.element"
+							],
+							"settings": {
+								"foreground": "#FF006E"
+							}
+						},
+						{
+							"scope": [
 								"keyword.person"
 							],
 							"settings": {
@@ -461,6 +479,15 @@
 						},
 						{
 							"scope": [
+								"string.metadata",
+								"string.custom"
+							],
+							"settings": {
+								"foreground": "#FF006E"
+							}
+						},
+						{
+							"scope": [
 								"constant.numeric.instances"
 							],
 							"settings": {
@@ -501,6 +528,24 @@
 							"settings": {
 								"foreground": "#c49060",
 								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"keyword.custom",
+								"keyword.element"
+							],
+							"settings": {
+								"foreground": "#FF006E",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"entity.name.element"
+							],
+							"settings": {
+								"foreground": "#FF006E"
 							}
 						},
 						{
@@ -683,6 +728,15 @@
 							],
 							"settings": {
 								"foreground": "#e4551d"
+							}
+						},
+						{
+							"scope": [
+								"string.metadata",
+								"string.custom"
+							],
+							"settings": {
+								"foreground": "#FF006E"
 							}
 						},
 						{

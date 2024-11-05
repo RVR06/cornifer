@@ -236,6 +236,12 @@
                     "include": "#comment"
                 },
                 {
+                    "include": "#element"
+                },
+                {
+                    "include": "#element_oneliner"
+                },
+                {
                     "include": "#person"
                 },
                 {
@@ -266,6 +272,83 @@
                     "include": "#ref"
                 }
             ]
+        },
+        "element": {
+            "name": "meta.element",
+            "begin": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(element)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.element"
+                },
+                "4": {
+                    "name": "keyword.element"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.metadata"
+                },
+                "12": {
+                    "name": "string.description"
+                },
+                "15": {
+                    "name": "string.tag"
+                },
+                "17": {
+                    "name": "keyword.element"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.element"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#implicit_relationship"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#perspectives"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
+                },
+                {
+                    "include": "#tags"
+                }
+            ]
+        },
+        "element_oneliner":{
+            "name": "meta.element",
+            "match": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(element)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*",
+            "captures": {
+                "2": {
+                    "name": "entity.name.element"
+                },
+                "4": {
+                    "name": "keyword.element"
+                },
+                "6": {
+                    "name": "string.name"
+                },
+                "9": {
+                    "name": "string.metadata"
+                },
+                "12": {
+                    "name": "string.description"
+                },
+                "15": {
+                    "name": "string.tag"
+                }
+            }
         },
         "perspectives": {
             "name": "meta.perspectives",
@@ -1393,6 +1476,9 @@
                     "include": "#view_filtered"
                 },
                 {
+                    "include": "#view_custom"
+                },
+                {
                     "include": "#include"
                 }
             ]
@@ -1702,6 +1788,47 @@
                 },
                 {
                     "include": "#view_serial_pipe"
+                }
+            ]
+        },
+        "view_custom": {
+            "name": "meta.view.custom",
+            "begin": "(?i)(\\s*)(custom)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*(\\s+)(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.custom"
+                },
+                "4": {
+                    "name": "string.custom"
+                },
+                "7": {
+                    "name": "string.name"
+                },
+                "10": {
+                    "name": "string.description"
+                },
+                "12": {
+                    "name": "keyword.custom"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.custom"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#animation"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#description"
                 }
             ]
         },
