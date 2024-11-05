@@ -8,6 +8,9 @@
             "include": "source.c4#view_filtered"
         },
         {
+            "include": "source.c4#view_custom"
+        },
+        {
             "include": "source.c4#view_systemLandscape"
         },
         {
