@@ -44,7 +44,7 @@ export class IconManager {
             'styles': CompletionItemKind.Color,
             'properties': CompletionItemKind.Color,
             'configuration': CompletionItemKind.Color,
-            'element': SymbolKind.Field,
+            'element': CompletionItemKind.Field,
             'branding': CompletionItemKind.Color
         };
 
@@ -78,6 +78,7 @@ export class IconManager {
             'deployment': SymbolKind.Struct,
             'dynamic': SymbolKind.Struct,
             'filtered': SymbolKind.Struct,
+            'custom': SymbolKind.Struct,
             'theme': SymbolKind.TypeParameter,
             'styles': SymbolKind.TypeParameter,
             'properties': SymbolKind.TypeParameter,

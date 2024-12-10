@@ -58,6 +58,11 @@ export function setupCompletionProvider(context: ExtensionContext) {
 				relationshipCompletion.insertText = new SnippetString('${1:identifier} -> ${2:identifier} "${3:description}" "${4:technology}" "${5:tags}"');
 				relationshipCompletion.detail = 'identifier -> identifier\n  "description"\n  "technology"\n  "tags"';
 
+				const elementCompletion = new CompletionItem('element', IconManager.gimmeCompletionItemKind('element'));
+				elementCompletion.commitCharacters = ['\t'];
+				elementCompletion.insertText = new SnippetString('${1:identifier} = element "${2:name}" "${3:metadata}" "${4:description}" "${5:tags}" {\n\t${0}\n}');
+				elementCompletion.detail = 'identifier =\n  element\n  "name"\n  "metadata"\n  "description"\n  "tags" {}';
+
 				return [
 					workspaceCompletion,
 					groupCompletion,
@@ -65,7 +70,8 @@ export function setupCompletionProvider(context: ExtensionContext) {
 					systemCompletion,
 					containerCompletion,
 					componentCompletion,
-					relationshipCompletion
+					relationshipCompletion,
+					elementCompletion
 				];
 			}
 		});
@@ -174,6 +180,11 @@ export function setupCompletionProvider(context: ExtensionContext) {
 				filtered.insertText = new SnippetString('filtered "${1:baseview_name}" ${2:include|exclude} "${3:tags}" "${4:name}" "${5:description}"');
 				filtered.detail = 'filtered\n  "baseview_name"\n  include|exclude\n  "tags"\n  "name"\n  "description"';
 
+				const custom = new CompletionItem('custom', IconManager.gimmeCompletionItemKind('view'));
+				custom.commitCharacters = ['\t'];
+				custom.insertText = new SnippetString('custom "${1:key}" "${2:title}" "${3:description}" { \n\tinclude *\n}');
+				custom.detail = 'custom\n  "key"\n  "title"\n  "description"';
+
 				return [
 					systemLandscape,
 					systemContext,
@@ -181,7 +192,8 @@ export function setupCompletionProvider(context: ExtensionContext) {
 					component,
 					deployment,
 					dynamic,
-					filtered
+					filtered,
+					custom
 				];
 			}
 		});

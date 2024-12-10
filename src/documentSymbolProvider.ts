@@ -24,7 +24,7 @@ export function setupDocumentSymbolProvider(context: ExtensionContext) {
         'deploymentEnvironment', 'deploymentGroup', 'deploymentNode', 'infrastructureNode',
         'softwareSystemInstance', 'containerInstance',
         'views', 'theme', 'branding', 'styles', 'properties', 'element', 'relationship',
-        'systemLandscape', 'systemContext', 'filtered', 'deployment', 'dynamic'
+        'systemLandscape', 'systemContext', 'filtered', 'deployment', 'dynamic', 'custom'
     ];
 
     const provider = languages.registerDocumentSymbolProvider(['c4', 'c4u'],
