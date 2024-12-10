@@ -1075,6 +1075,9 @@
                     "include": "#url"
                 },
                 {
+                    "include": "#perspectives"
+                },
+                {
                     "include": "#description"
                 },
                 {
