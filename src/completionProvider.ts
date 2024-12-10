@@ -174,6 +174,11 @@ export function setupCompletionProvider(context: ExtensionContext) {
 				filtered.insertText = new SnippetString('filtered "${1:baseview_name}" ${2:include|exclude} "${3:tags}" "${4:name}" "${5:description}"');
 				filtered.detail = 'filtered\n  "baseview_name"\n  include|exclude\n  "tags"\n  "name"\n  "description"';
 
+				const custom = new CompletionItem('custom', IconManager.gimmeCompletionItemKind('view'));
+				custom.commitCharacters = ['\t'];
+				custom.insertText = new SnippetString('custom "${1:key}" "${2:title}" "${3:description}" { \n\tinclude *\n}');
+				custom.detail = 'custom\n  "key"\n  "title"\n  "description"';
+
 				return [
 					systemLandscape,
 					systemContext,
@@ -181,7 +186,8 @@ export function setupCompletionProvider(context: ExtensionContext) {
 					component,
 					deployment,
 					dynamic,
-					filtered
+					filtered,
+					custom
 				];
 			}
 		});
