@@ -1,10 +1,19 @@
 # Changelog
 
+## 0.31.1 - December 2024
+
+### Bugs fixed
+
+* Add missing `perspectives` support for `infrastructureNode`
+* Fix broken `outline` due to `custom` support within `view`
+* Add missing completion for `element` & `custom` `view`
+* Add missing `custom` `view` hover
+
 ## 0.31.0 - November 2024
 
 ### New features
 
-* Add `element` support within `model` and `custom` support within `view` 
+* Add `element` support within `model` and `custom` support within `view`
 
 ## 0.30.0 - May 2024
 
