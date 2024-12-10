@@ -58,6 +58,11 @@ export function setupCompletionProvider(context: ExtensionContext) {
 				relationshipCompletion.insertText = new SnippetString('${1:identifier} -> ${2:identifier} "${3:description}" "${4:technology}" "${5:tags}"');
 				relationshipCompletion.detail = 'identifier -> identifier\n  "description"\n  "technology"\n  "tags"';
 
+				const elementCompletion = new CompletionItem('element', IconManager.gimmeCompletionItemKind('element'));
+				elementCompletion.commitCharacters = ['\t'];
+				elementCompletion.insertText = new SnippetString('${1:identifier} = element "${2:name}" "${3:metadata}" "${4:description}" "${5:tags}" {\n\t${0}\n}');
+				elementCompletion.detail = 'identifier =\n  element\n  "name"\n  "metadata"\n  "description"\n  "tags" {}';
+
 				return [
 					workspaceCompletion,
 					groupCompletion,
@@ -65,7 +70,8 @@ export function setupCompletionProvider(context: ExtensionContext) {
 					systemCompletion,
 					containerCompletion,
 					componentCompletion,
-					relationshipCompletion
+					relationshipCompletion,
+					elementCompletion
 				];
 			}
 		});
