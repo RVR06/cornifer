@@ -26,7 +26,7 @@ suite('Completion item provider', () => {
 				{ label: 'deploymentGroup', kind: CompletionItemKind.Interface },
 				{ label: 'deploymentNode', kind: CompletionItemKind.Interface },
 				{ label: 'dynamic', kind: CompletionItemKind.Struct },
-				{ label: 'element', kind: CompletionItemKind.Struct },
+				{ label: 'element', kind: CompletionItemKind.Field },
 				{ label: 'filtered', kind: CompletionItemKind.Struct },
 				{ label: 'group', kind: CompletionItemKind.Keyword },
 				{ label: 'healthCheck', kind: CompletionItemKind.Event },

@@ -44,7 +44,7 @@ export class IconManager {
             'styles': CompletionItemKind.Color,
             'properties': CompletionItemKind.Color,
             'configuration': CompletionItemKind.Color,
-            'element': SymbolKind.Field,
+            'element': CompletionItemKind.Field,
             'branding': CompletionItemKind.Color
         };
 
