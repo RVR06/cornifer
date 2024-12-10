@@ -784,6 +784,22 @@ export function setupHoverProvider(context: ExtensionContext) {
 						'}',
 						'```'
 					],
+				custom:
+					['```c4u',
+						'custom "key" "title" "description" {}',
+						'```',
+						'---',
+						'>',
+						'```c4',
+						'workspace "" "" {',
+						'views {',
+						'custom "key" "title" "description" {}',
+						'```',
+						'---',
+						'### Custom view',
+						`[$(book)](${link}-view)\n`,
+						'Defines a `custom view`.',
+					],
 			};
 
 			return {
