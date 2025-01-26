@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.31.2 - January 2025
+
+### Bugs fixed
+
+* Fix missing semantic highlight for `element`
+
 ## 0.31.1 - December 2024
 
 ### Bugs fixed
