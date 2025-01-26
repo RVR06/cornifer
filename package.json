@@ -173,6 +173,10 @@
 			{
 				"id": "infrastructureNode",
 				"description": "infrastructureNode identifier"
+			},
+			{
+				"id": "element",
+				"description": "element identifier"
 			}
 		],
 		"semanticTokenScopes": [
@@ -210,6 +214,9 @@
 					],
 					"infrastructureNode": [
 						"entity.name.infrastructureNode"
+					],
+					"element": [
+						"entity.name.element"
 					]
 				}
 			}
