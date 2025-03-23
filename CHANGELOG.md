@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.31.3 - March 2025
+
+### Bugs fixed
+
+* Fix [broken hover behavior](https://github.com/RVR06/cornifer/issues/13)
+
 ## 0.31.2 - January 2025
 
 ### Bugs fixed
