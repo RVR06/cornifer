@@ -4,7 +4,7 @@
 
 ### Bugs fixed
 
-* Fix [broken hover behavior](https://github.com/RVR06/cornifer/issues/13)
+* Fix hover behavior to avoid noising extension host output
 
 ## 0.31.2 - January 2025
 
