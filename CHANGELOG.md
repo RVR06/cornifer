@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.31.3 - March 2025
+
+### Bugs fixed
+
+* Fix hover behavior to avoid noising extension host output
+
 ## 0.31.2 - January 2025
 
 ### Bugs fixed

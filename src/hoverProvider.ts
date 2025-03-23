@@ -802,9 +802,12 @@ export function setupHoverProvider(context: ExtensionContext) {
 					],
 			};
 
-			return {
-				contents: [new MarkdownString(`${map[word.toLowerCase()].join('\n')}`, true)]
-			};
+			const hoverContent = map[word.toLowerCase()];
+			if (hoverContent) {
+				return {
+					contents: [new MarkdownString(`${hoverContent.join('\n')}`, true)]
+				};
+			}
 		}
 	});
 
