@@ -1,0 +1,28 @@
+name: Publish to Marketplace
+
+on:
+  workflow_run:
+    workflows: ["Build Cornifer"]
+    types:
+      - completed
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    name: Publish to Marketplace
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: cornifer-vsix
+
+      - name: Publish to Marketplace
+        uses: lannonbr/vsce-action@4.0.0
+        with:
+          args: "publish -p $VSCE_TOKEN"
+        env:
+          VSCE_TOKEN: ${{ secrets.MARKETPLACE_PAT }}
