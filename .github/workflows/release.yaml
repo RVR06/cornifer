@@ -73,6 +73,6 @@ jobs:
         if: ${{ env.PUSH_PACKAGES == 'true' }}
         uses: lannonbr/vsce-action@4.0.0
         with:
-          args: "publish -p $MARKETPLACE_PAT"
+          args: "publish -p $VSCE_TOKEN"
         env:
           VSCE_TOKEN: ${{ secrets.MARKETPLACE_PAT }}
