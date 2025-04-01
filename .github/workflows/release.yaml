@@ -5,6 +5,9 @@ on:
     workflows: ["Build Cornifer"]
     types:
       - completed
+  push:
+    branches:
+      - main
 
 jobs:
   release:
