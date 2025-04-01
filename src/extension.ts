@@ -40,7 +40,7 @@ export function activate(context: ExtensionContext) {
  */
 function prompt() {
 	if (!workspace.getConfiguration('cornifer').get('disablePrompt', false)) {
-		const ext = extensions.getExtension('rvr06.cornifer')!;
+		const ext = extensions.getExtension('archicionado.cornifer')!;
 		window.showInformationMessage(`Cornifer ${ext.packageJSON.version} activated!`, 'Don\'t Ask Again')
 			.then(async result => {
 				if (result === 'Don\'t Ask Again') {
