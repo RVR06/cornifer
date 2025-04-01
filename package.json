@@ -32,9 +32,6 @@
 		"structurizr",
 		"DSL"
 	],
-	"activationEvents": [
-		"onLanguage:c4"
-	],
 	"main": "./dist/extension.js",
 	"contributes": {
 		"languages": [
