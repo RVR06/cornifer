@@ -5,15 +5,12 @@ on:
     workflows: ["Build Cornifer"]
     types:
       - completed
-  push:
-    branches:
-      - main
 
 jobs:
   publish:
     name: Publish to Marketplace
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     steps:
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
