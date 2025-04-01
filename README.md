@@ -1,9 +1,9 @@
 # C4 DSL Visual Studio Code Extension
 
-![](https://img.shields.io/badge/last_updated-march_2025-0c7cba)
-![](https://img.shields.io/badge/vsix-v0.31.3-ef8d22)
+![](https://img.shields.io/badge/last_updated-april_2025-0c7cba)
+![](https://img.shields.io/badge/vsix-v1.1.0-ef8d22)
 
-![](https://img.shields.io/badge/publisher-rvr06-fcc438)
+![](https://img.shields.io/badge/publisher-archicionado-fcc438)
 ![](https://img.shields.io/badge/chat-on_github_issue-19967d)
 ![](https://img.shields.io/badge/contributions-welcome-834187)
 

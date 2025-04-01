@@ -10,16 +10,15 @@
 		"theme": "dark"
 	},
 	"license": "SEE LICENSE IN LICENSE.txt",
-	"publisher": "rvr06",
-	"version": "0.31.3",
-	"preview": true,
+	"publisher": "archicionado",
+	"version": "1.1.0",
 	"homepage": "https://github.com/rvr06/cornifer/blob/main/README.md",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/rvr06/cornifer"
 	},
 	"engines": {
-		"vscode": "^1.63.0"
+		"vscode": "^1.75.0"
 	},
 	"categories": [
 		"Linters", 
@@ -32,9 +31,6 @@
 		"architecture",
 		"structurizr",
 		"DSL"
-	],
-	"activationEvents": [
-		"onLanguage:c4"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {

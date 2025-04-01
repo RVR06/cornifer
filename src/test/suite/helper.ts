@@ -17,7 +17,7 @@ export let platformEol: string;
 
 export async function activate(docUri: Uri) {
 	// The extensionId is `publisher.name` from package.json
-	const ext = extensions.getExtension('rvr06.cornifer')!;
+	const ext = extensions.getExtension('archicionado.cornifer')!;
 	await ext.activate();
 	try {
 		doc = await workspace.openTextDocument(docUri);
