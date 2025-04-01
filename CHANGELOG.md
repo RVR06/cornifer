@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0 - April 2025
+
+### New features
+
+* Publish to marketplace
+
 ## 0.31.3 - March 2025
 
 ### Bugs fixed
