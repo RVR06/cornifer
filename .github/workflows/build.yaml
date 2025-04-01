@@ -31,7 +31,7 @@ jobs:
         run: npm run craft
 
       - name: Upload Build Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cornifer-vsix
           path: cornifer-*.vsix
