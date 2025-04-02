@@ -1,46 +1,78 @@
-name: Create GitHub Release
+name: Create Release
 
 on:
-  workflow_run:
-    workflows: ["Build Cornifer"]
-    types:
-      - completed
+  push:
+
+  workflow_dispatch:
 
 jobs:
-  release:
-    name: Create GitHub Release
+  build:
+    name: Create Build
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main' }}
+    env:
+      PUSH_PACKAGES: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: cornifer-vsix
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Get version from package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: npm ci
+        run: |
+          npm ci
+
+      - name: npm test [Linux]
+        run: |
+          xvfb-run -a npm test
+        if: runner.os == 'Linux'
+      - name: npm test [!Linux]
+        run: |
+          npm test
+        if: runner.os != 'Linux'
+
+      - name: Package vsix
+        run: |
+          npm run craft
+
+    # Release
+      - name: Get version from package.json and set in Env
+        if: ${{ env.PUSH_PACKAGES == 'true' }}
         run: |
           sudo apt install jq
           echo "CORNIFER_VERSION=$(cat package.json | jq -r '.version')" >> $GITHUB_ENV
 
       - name: Create Release
+        if: ${{ env.PUSH_PACKAGES == 'true' }}
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ env.CORNIFER_VERSION }}
-          release_name: ${{ env.CORNIFER_VERSION }}
+          release_name: ${{ env.CORNIFER_VERSION }} 
           body: |
-            Please check `CHANGELOG.md` for latest fixes and updates.
+            Please check `CHANGELOG.md` for latest fixes and updates. 
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
+      - name: Upload Cornifer Artifact
+        if: ${{ env.PUSH_PACKAGES == 'true' }}
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: cornifer-${{ env.CORNIFER_VERSION }}.vsix
           asset_name: cornifer-${{ env.CORNIFER_VERSION }}.vsix
           asset_content_type: application
+
+    # Marketplace
+      - name: Publish to marketplace
+        if: ${{ env.PUSH_PACKAGES == 'true' }}
+        uses: lannonbr/vsce-action@4.0.0
+        with:
+          args: "publish -p $VSCE_TOKEN"
+        env:
+          VSCE_TOKEN: ${{ secrets.MARKETPLACE_PAT }}
