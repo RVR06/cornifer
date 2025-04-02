@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 - April 2025
+
+### Bugs fixed
+
+* Fix wrong hyperlinks in website
+
 ## 1.1.0 - April 2025
 
 ### New features
