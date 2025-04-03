@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2 - April 2025
+
+### Bugs fixed
+
+* Fix installation section in README
+
 ## 1.1.1 - April 2025
 
 ### Bugs fixed
