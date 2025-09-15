@@ -270,6 +270,9 @@
                 },
                 {
                     "include": "#ref"
+                },
+                {
+                    "include": "#properties"
                 }
             ]
         },
@@ -326,7 +329,7 @@
                 }
             ]
         },
-        "element_oneliner":{
+        "element_oneliner": {
             "name": "meta.element",
             "match": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(element)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*",
             "captures": {
@@ -547,6 +550,9 @@
                 },
                 {
                     "include": "#include"
+                },
+                {
+                    "include": "#group"
                 }
             ]
         },
@@ -585,6 +591,9 @@
                 },
                 {
                     "include": "#include"
+                },
+                {
+                    "include": "#group_1"
                 }
             ]
         },
@@ -623,6 +632,9 @@
                 },
                 {
                     "include": "#include"
+                },
+                {
+                    "include": "#group_2"
                 }
             ]
         },

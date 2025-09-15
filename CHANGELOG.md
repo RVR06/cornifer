@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0 - April 2025
+
+### New features
+
+* Add nested `group` support
+
 ## 1.1.2 - April 2025
 
 ### Bugs fixed
