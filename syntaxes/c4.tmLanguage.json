@@ -270,6 +270,9 @@
                 },
                 {
                     "include": "#ref"
+                },
+                {
+                    "include": "#properties"
                 }
             ]
         },
@@ -326,7 +329,7 @@
                 }
             ]
         },
-        "element_oneliner":{
+        "element_oneliner": {
             "name": "meta.element",
             "match": "(?i)(\\s*)(\\w+)(\\s*=\\s*)(element)(\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*",
             "captures": {
