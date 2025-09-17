@@ -1,6 +1,12 @@
 # Changelog
 
-## 1.2.0 - April 2025
+## 1.2.1 - September 2025
+
+### Bugs fixed
+
+* Fix GitHub Copilot extension conflict, preventing Cornifer to wake up on `.dsl` files
+
+## 1.2.0 - September 2025
 
 ### New features
 
