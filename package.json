@@ -11,7 +11,7 @@
 	},
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"publisher": "archicionado",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"homepage": "https://rvr06.github.io/cornifer/",
 	"repository": {
 		"type": "git",
@@ -21,7 +21,7 @@
 		"vscode": "^1.75.0"
 	},
 	"categories": [
-		"Linters", 
+		"Linters",
 		"Programming Languages",
 		"Other"
 	],
@@ -31,6 +31,9 @@
 		"architecture",
 		"structurizr",
 		"DSL"
+	],
+	"activationEvents": [
+		"onLanguage:c4"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
