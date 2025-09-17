@@ -21,7 +21,7 @@
 		"vscode": "^1.75.0"
 	},
 	"categories": [
-		"Linters", 
+		"Linters",
 		"Programming Languages",
 		"Other"
 	],
@@ -31,6 +31,9 @@
 		"architecture",
 		"structurizr",
 		"DSL"
+	],
+	"activationEvents": [
+		"onLanguage:c4"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
