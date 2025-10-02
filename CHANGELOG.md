@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.2 - October 2025
+
+### Bugs fixed
+
+* Fix #9: broken `preview` when workspace file name is not the default one, `workspace.dsl`.
+
 ## 1.2.1 - September 2025
 
 ### Bugs fixed
