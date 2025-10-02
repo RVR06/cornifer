@@ -30,13 +30,14 @@ export function setupPreviewProvider(context: ExtensionContext) {
 			let tag = workspace.getConfiguration('cornifer').structurizrLiteTag;
 			let ws = path.dirname(activeEditor.document.uri.fsPath);
 			let workspaceName = ws.split(path.sep).pop();
+			let fileName = path.basename(activeEditor.document.uri.fsPath, '.dsl');
 
 			let containerName = createRandomString();
 
 			portfinder.getPort(function (_: any, port: any) {
 				console.log(`Starting ${workspaceName} Structurizr Preview...`);
 
-				cp.exec(`docker run -p 127.0.0.1:${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" structurizr/lite:${tag}`,
+				cp.exec(`docker run -p 127.0.0.1:${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" structurizr/lite:${tag}`,
 					function (_, stdout, __) {
 						console.log(stdout);
 					});
