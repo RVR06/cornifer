@@ -4,7 +4,7 @@
 
 ### Bugs fixed
 
-* Fix #9: broken `preview` when workspace file name is not the default one, `workspace.dsl`.
+* Fix #9: enable preview functionality regardless of the filename used for .dsl files.
 
 ## 1.2.1 - September 2025
 
