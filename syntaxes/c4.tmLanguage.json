@@ -1344,12 +1344,12 @@
                     "name": "string.tag"
                 },
                 "14": {
-                    "name": "keyword.reference"
+                    "name": "keyword.relationship"
                 }
             },
             "endCaptures": {
                 "0": {
-                    "name": "keyword.reference"
+                    "name": "keyword.relationship"
                 }
             },
             "patterns": [
@@ -1397,12 +1397,12 @@
                     "name": "string.tag"
                 },
                 "12": {
-                    "name": "keyword.reference"
+                    "name": "keyword.relationship"
                 }
             },
             "endCaptures": {
                 "0": {
-                    "name": "keyword.reference"
+                    "name": "keyword.relationship"
                 }
             },
             "patterns": [

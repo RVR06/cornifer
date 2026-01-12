@@ -295,6 +295,15 @@
 						},
 						{
 							"scope": [
+								"keyword.relationship"
+							],
+							"settings": {
+								"foreground": "#FFFFFF",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
 								"entity.name.element"
 							],
 							"settings": {
