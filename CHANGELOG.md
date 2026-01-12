@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.3 - January 2026
+
+### Bugs fixed
+
+* Fix #31: mirror markdown for preview default shortcut.
+* Fix #34: improve outline/breadcrumb to handle enriched `relationships`.
+* Fix #35: improve outline/breadcrumb to handle string for `tags`.
+
 ## 1.2.2 - October 2025
 
 ### Bugs fixed

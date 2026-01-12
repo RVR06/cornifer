@@ -51,7 +51,7 @@ export function setupDocumentSymbolProvider(context: ExtensionContext) {
                     const location = new Position(i, line.firstNonWhitespaceCharacterIndex);
 
                     // Close node
-                    if (line.text.endsWith('}')) {
+                    if (line.text.trim() === '}') {
                         const symbol = current.pop();
 
                         if (symbol === fake) {
@@ -72,6 +72,13 @@ export function setupDocumentSymbolProvider(context: ExtensionContext) {
                         }
 
                         const tokens = trimmed.split(' ').filter(Boolean);
+
+                        // Silent enriched relationships
+                        if ((tokens[0] === '->' ||tokens[1] === '->') && tokens[tokens.length - 1] === '{') {
+                            current.push(fake);
+                            continue;
+                        }
+
                         const key = tokens[1] === '=' ? tokens[2] : tokens[0];
 
                         // Ensure we have keyword

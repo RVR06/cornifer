@@ -11,7 +11,7 @@
 	},
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"publisher": "archicionado",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"homepage": "https://rvr06.github.io/cornifer/",
 	"repository": {
 		"type": "git",
@@ -98,8 +98,8 @@
 		"keybindings": [
 			{
 				"command": "cornifer.preview",
-				"key": "ctrl+alt+p",
-				"mac": "shift+cmd+p"
+				"key": "ctrl+shift+v",
+				"mac": "cmd+shift+v"
 			}
 		],
 		"menus": {
@@ -290,6 +290,15 @@
 							],
 							"settings": {
 								"foreground": "#FF006E",
+								"fontStyle": "bold"
+							}
+						},
+						{
+							"scope": [
+								"keyword.relationship"
+							],
+							"settings": {
+								"foreground": "#FFFFFF",
 								"fontStyle": "bold"
 							}
 						},
