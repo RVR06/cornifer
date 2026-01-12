@@ -58,6 +58,19 @@ workspace "workspace" "description"  {
 		person_1 -> softwareSystem_1 "relationship_1"
 		person_1 -> softwareSystem_1
 		
+		person_1 -> softwareSystem_1 "relationship_123" "technology" "tags" {
+			tags tags
+		}
+		person_1 -> softwareSystem_1 "relationship_12" "technology" {
+			tags tags
+		}
+		person_1 -> softwareSystem_1 "relationship_1" {
+			tags tags
+		}
+		person_1 -> softwareSystem_1 {
+			tags tags
+		}
+		
 		person_1 -> softwareSystem_1.container_1 "relationship_123" "technology" "tags"
 		person_1 -> softwareSystem_1.container_1 "relationship_12" "technology"
 		person_1 -> softwareSystem_1.container_1 "relationship_1"
@@ -83,6 +96,19 @@ workspace "workspace" "description"  {
 			-> softwareSystem_one_liner_123 "implicit_relationship_12" "technology"
 			-> softwareSystem_one_liner_123 "implicit_relationship_1"
 			-> softwareSystem_one_liner_123
+			
+			-> softwareSystem_one_liner_123 "implicit_relationship_123" "technology" "tags" {
+				tags tags
+			}
+			-> softwareSystem_one_liner_123 "implicit_relationship_12" "technology" {
+				tags tags
+			}
+			-> softwareSystem_one_liner_123 "implicit_relationship_1" {
+				tags tags
+			}
+			-> softwareSystem_one_liner_123 {
+				tags tags
+			}
 		}
 		
 		unamed_instances_ = deploymentEnvironment "unamed_instances" {
