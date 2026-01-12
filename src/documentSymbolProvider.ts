@@ -51,7 +51,7 @@ export function setupDocumentSymbolProvider(context: ExtensionContext) {
                     const location = new Position(i, line.firstNonWhitespaceCharacterIndex);
 
                     // Close node
-                    if (line.text.endsWith('}')) {
+                    if (line.text.trim() === '}') {
                         const symbol = current.pop();
 
                         if (symbol === fake) {
