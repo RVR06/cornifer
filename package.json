@@ -98,8 +98,8 @@
 		"keybindings": [
 			{
 				"command": "cornifer.preview",
-				"key": "ctrl+alt+p",
-				"mac": "shift+cmd+p"
+				"key": "ctrl+shift+v",
+				"mac": "cmd+shift+v"
 			}
 		],
 		"menus": {
