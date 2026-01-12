@@ -146,7 +146,13 @@
             "include": "source.c4#relationship"
         },
         {
+            "include": "source.c4#relationship2"
+        },
+        {
             "include": "source.c4#implicit_relationship"
+        },
+        {
+            "include": "source.c4#implicit_relationship2"
         },
         {
             "include": "source.c4#views"

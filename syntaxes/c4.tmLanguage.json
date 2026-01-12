@@ -260,6 +260,9 @@
                     "include": "#softwareSystem_oneliner"
                 },
                 {
+                    "include": "#relationship2"
+                },
+                {
                     "include": "#relationship"
                 },
                 {
@@ -309,6 +312,9 @@
                 }
             },
             "patterns": [
+                {
+                    "include": "#implicit_relationship2"
+                },
                 {
                     "include": "#implicit_relationship"
                 },
@@ -419,6 +425,9 @@
             },
             "patterns": [
                 {
+                    "include": "#implicit_relationship2"
+                },
+                {
                     "include": "#implicit_relationship"
                 },
                 {
@@ -499,6 +508,9 @@
                     "include": "#group"
                 },
                 {
+                    "include": "#relationship2"
+                },
+                {
                     "include": "#relationship"
                 },
                 {
@@ -546,6 +558,9 @@
                     "include": "#softwareSystem_oneliner"
                 },
                 {
+                    "include": "#relationship2"
+                },
+                {
                     "include": "#relationship"
                 },
                 {
@@ -587,6 +602,9 @@
                     "include": "#container_oneliner"
                 },
                 {
+                    "include": "#relationship2"
+                },
+                {
                     "include": "#relationship"
                 },
                 {
@@ -626,6 +644,9 @@
                 },
                 {
                     "include": "#component_oneliner"
+                },
+                {
+                    "include": "#relationship2"
                 },
                 {
                     "include": "#relationship"
@@ -678,7 +699,13 @@
                     "include": "#container_oneliner"
                 },
                 {
+                    "include": "#relationship2"
+                },
+                {
                     "include": "#relationship"
+                },
+                {
+                    "include": "#implicit_relationship2"
                 },
                 {
                     "include": "#implicit_relationship"
@@ -770,7 +797,13 @@
                     "include": "#component_oneliner"
                 },
                 {
+                    "include": "#relationship2"
+                },
+                {
                     "include": "#relationship"
+                },
+                {
+                    "include": "#implicit_relationship2"
                 },
                 {
                     "include": "#implicit_relationship"
@@ -877,6 +910,9 @@
                     "include": "#tags"
                 },
                 {
+                    "include": "#implicit_relationship2"
+                },
+                {
                     "include": "#implicit_relationship"
                 }
             ]
@@ -937,6 +973,9 @@
                 },
                 {
                     "include": "#deploymentNode"
+                },
+                {
+                    "include": "#relationship2"
                 },
                 {
                     "include": "#relationship"
@@ -1004,7 +1043,13 @@
                     "include": "#infrastructureNode_oneliner"
                 },
                 {
+                    "include": "#relationship2"
+                },
+                {
                     "include": "#relationship"
+                },
+                {
+                    "include": "#implicit_relationship2"
                 },
                 {
                     "include": "#implicit_relationship"
@@ -1079,6 +1124,9 @@
             "patterns": [
                 {
                     "include": "#comment"
+                },
+                {
+                    "include": "#implicit_relationship2"
                 },
                 {
                     "include": "#implicit_relationship"
@@ -1158,6 +1206,9 @@
                     "include": "#healthCheck"
                 },
                 {
+                    "include": "#implicit_relationship2"
+                },
+                {
                     "include": "#implicit_relationship"
                 },
                 {
@@ -1226,6 +1277,9 @@
                     "include": "#healthCheck"
                 },
                 {
+                    "include": "#implicit_relationship2"
+                },
+                {
                     "include": "#implicit_relationship"
                 },
                 {
@@ -1275,6 +1329,44 @@
                 }
             }
         },
+        "relationship2": {
+            "name": "meta.relationship",
+            "begin": "(?i)(\\s*)(.*?)(\\s+->\\s+)(.*?)(\\s+)(\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "7": {
+                    "name": "string.description"
+                },
+                "10": {
+                    "name": "string.technology"
+                },
+                "13": {
+                    "name": "string.tag"
+                },
+                "14": {
+                    "name": "keyword.reference"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.reference"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#tags"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#perspectives"
+                }
+            ]
+        },
         "implicit_relationship": {
             "name": "meta.relationship",
             "match": "(?i)(\\s+->\\s+)(.*?)(\\s+)(\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*",
@@ -1289,6 +1381,44 @@
                     "name": "string.tag"
                 }
             }
+        },
+        "implicit_relationship2": {
+            "name": "meta.relationship",
+            "begin": "(?i)(\\s+->\\s+)(.*?)(\\s+)(\"(.*?)\"((\\s+)\"(.*?)\"((\\s+)\"(.*?)\")*)*)*(\\{)",
+            "end": "\\}",
+            "beginCaptures": {
+                "5": {
+                    "name": "string.description"
+                },
+                "8": {
+                    "name": "string.technology"
+                },
+                "11": {
+                    "name": "string.tag"
+                },
+                "12": {
+                    "name": "keyword.reference"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "keyword.reference"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#tags"
+                },
+                {
+                    "include": "#url"
+                },
+                {
+                    "include": "#properties"
+                },
+                {
+                    "include": "#perspectives"
+                }
+            ]
         },
         "theme": {
             "name": "meta.theme",
