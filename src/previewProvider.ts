@@ -27,11 +27,8 @@ export function setupPreviewProvider(context: ExtensionContext) {
 				return;
 			}
 
-			// e.g., structurizr/structurizr or structurizr/lite
 			let img = workspace.getConfiguration('cornifer').structurizrImage;
-			// e.g., latest or 2026.04.19
 			let tag = workspace.getConfiguration('cornifer').structurizrTag;
-			// e.g., local
 			let cmd = workspace.getConfiguration('cornifer').structurizrCmd;
 
 			let ws = path.dirname(activeEditor.document.uri.fsPath);

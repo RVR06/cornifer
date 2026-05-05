@@ -4,10 +4,12 @@
 
 ### Breaking
 
-+ **Structurizr Lite Preview** becomes **Structurizr Preview** allowing to specify the image you want to use.
++ **Structurizr Lite Preview** becomes **Structurizr Preview**
 
 > [!CAUTION]
-> `structurizrLiteTag` settings key has been renamed to `structurizrTag`
+> `structurizrLiteTag` settings key has been renamed to `structurizrTag`, e.g., `latest` or `2025.11.08`. Default to `2025.11.08` which is the latest `structurizr/lite` viable image.
+> `structurizrImage` settings key has been introduced to specify the image to use, e.g., `structurizr/structurizr` or `structurizr/lite`. Default to `structurizr/lite` which guarantee free usage.
+> `structurizrCmd` settings key has been introduced to cope with `structurizr/structurizr` usage, e.g., `local`. Empty by default to stick to `structurizr/lite` usage.
 
 ## 1.2.3 - January 2026
 
