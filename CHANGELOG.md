@@ -13,7 +13,7 @@ Default to `2026.04.19` which is the latest `structurizr/structurizr` named imag
 > - `structurizrImage` has been introduced to specify the image to use, e.g., `structurizr/structurizr` or `structurizr/lite`.  
 Default to the brand-new `structurizr/structurizr` for sustainability.
 > - `structurizrCmd` has been introduced to cope with `structurizr/structurizr` usage, e.g., `local`.  
-Default to `local` for `structurizr/structurizr` usage.
+Default to `local` for `structurizr/structurizr` usage. Can be left empty for `structurizr/lite` usage.
 
 ## 1.2.3 - January 2026
 
