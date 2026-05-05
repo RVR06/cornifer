@@ -7,9 +7,9 @@
 + **Structurizr Lite Preview** becomes **Structurizr Preview**
 
 > [!CAUTION]
-> `structurizrLiteTag` settings key has been renamed to `structurizrTag`, e.g., `latest` or `2025.11.08`. Default to `2025.11.08` which is the latest `structurizr/lite` viable image.
-> `structurizrImage` settings key has been introduced to specify the image to use, e.g., `structurizr/structurizr` or `structurizr/lite`. Default to `structurizr/lite` which guarantee free usage.
-> `structurizrCmd` settings key has been introduced to cope with `structurizr/structurizr` usage, e.g., `local`. Empty by default to stick to `structurizr/lite` usage.
+> `structurizrLiteTag` settings key has been renamed to `structurizrTag`, e.g., `latest` or `2025.11.08`. Default to `2026.04.19` which is the latest `structurizr/structurizr` named image ATTOW.
+> `structurizrImage` settings key has been introduced to specify the image to use, e.g., `structurizr/structurizr` or `structurizr/lite`. Default to the brand-new `structurizr/structurizr` for sustainability.
+> `structurizrCmd` settings key has been introduced to cope with `structurizr/structurizr` usage, e.g., `local`. Default to `local` for `structurizr/structurizr` usage.
 
 ## 1.2.3 - January 2026
 

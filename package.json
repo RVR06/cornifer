@@ -225,17 +225,17 @@
 			"properties": {
 				"cornifer.structurizrImage": {
 					"type": "string",
-					"default": "structurizr/lite",
+					"default": "structurizr/structurizr",
 					"description": "Structurizr docker image used for preview."
 				},
 				"cornifer.structurizrTag": {
 					"type": "string",
-					"default": "2025.11.08",
+					"default": "2026.04.19",
 					"description": "Structurizr docker tag used for preview."
 				},
 				"cornifer.structurizrCmd": {
 					"type": "string",
-					"default": "",
+					"default": "local",
 					"description": "(Opt) Structurizr docker cmd used for preview."
 				},
 				"cornifer.disablePrompt": {
