@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0 - May 2026
+
+### Breaking
+
++ **Structurizr Lite Preview** becomes **Structurizr Preview** allowing to specify the image you want to use.
+
+> [!CAUTION]
+> `structurizrLiteTag` settings key has been renamed to `structurizrTag`
+
 ## 1.2.3 - January 2026
 
 ### Bugs fixed
