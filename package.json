@@ -223,10 +223,15 @@
 		"configuration": {
 			"title": "Cornifer",
 			"properties": {
-				"cornifer.structurizrLiteTag": {
+				"cornifer.structurizrImage": {
+					"type": "string",
+					"default": "structurizr/lite",
+					"description": "Structurizr docker image used for preview."
+				},
+				"cornifer.structurizrTag": {
 					"type": "string",
 					"default": "latest",
-					"description": "Structurizr Lite docker image tag used for preview."
+					"description": "Structurizr docker tag used for preview."
 				},
 				"cornifer.disablePrompt": {
 					"type": "boolean",
