@@ -230,8 +230,13 @@
 				},
 				"cornifer.structurizrTag": {
 					"type": "string",
-					"default": "latest",
+					"default": "2025.11.08",
 					"description": "Structurizr docker tag used for preview."
+				},
+				"cornifer.structurizrCmd": {
+					"type": "string",
+					"default": "",
+					"description": "(Opt) Structurizr docker cmd used for preview."
 				},
 				"cornifer.disablePrompt": {
 					"type": "boolean",

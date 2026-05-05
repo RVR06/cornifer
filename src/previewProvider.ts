@@ -31,6 +31,8 @@ export function setupPreviewProvider(context: ExtensionContext) {
 			let img = workspace.getConfiguration('cornifer').structurizrImage;
 			// e.g., latest or 2026.04.19
 			let tag = workspace.getConfiguration('cornifer').structurizrTag;
+			// e.g., local
+			let cmd = workspace.getConfiguration('cornifer').structurizrCmd;
 
 			let ws = path.dirname(activeEditor.document.uri.fsPath);
 			let workspaceName = ws.split(path.sep).pop();
@@ -41,7 +43,7 @@ export function setupPreviewProvider(context: ExtensionContext) {
 			portfinder.getPort(function (_: any, port: any) {
 				console.log(`Starting ${workspaceName} Structurizr Preview...`);
 
-				cp.exec(`docker run -p 127.0.0.1:${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" ${img}:${tag}`,
+				cp.exec(`docker run -p 127.0.0.1:${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" ${img}:${tag} ${cmd}`,
 					function (_, stdout, __) {
 						console.log(stdout);
 					});
