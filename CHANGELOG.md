@@ -17,6 +17,12 @@ Default to `local` for `structurizr/structurizr` usage. Can be left empty for `s
 > - `structurizrAutoRefreshInterval` has been introduced to deal with [auto-refresh](https://docs.structurizr.com/local/configuration#auto-refresh) by specifying a number of milliseconds.  
 Default to `0`, i.e., auto-refresh disabled. 
 
+### New features
+
+* Accommodate both structurizr lite and brand-new unified structurizr experience.
+* Use simple browser for preview, mirroring "Open Preview to the Side"
+* Surface auto-refresh facility 
+
 ## 1.2.3 - January 2026
 
 ### Bugs fixed
