@@ -22,6 +22,7 @@ Default to `0`, i.e., auto-refresh disabled.
 * Accommodate both structurizr lite and brand-new unified structurizr experience.
 * Use simple browser for preview, mirroring "Open Preview to the Side"
 * Surface auto-refresh facility 
+* Warn about missing Docker image
 
 ## 1.2.3 - January 2026
 

@@ -29,24 +29,36 @@ export function setupPreviewProvider(context: ExtensionContext) {
 			let tag = workspace.getConfiguration('cornifer').structurizrTag;
 			let cmd = workspace.getConfiguration('cornifer').structurizrCmd;
 			let autoRefresh = workspace.getConfiguration('cornifer').structurizrAutoRefreshInterval;
+			const imageName = `${img}:${tag}`;
+
+			if (!hasDockerImage(imageName)) {
+				const choice = await window.showWarningMessage(
+					`Docker image ${imageName} is not available locally and will be downloaded. This may take a while. Continue?`,
+					'Continue',
+					'Cancel'
+				);
+
+				if (choice !== 'Continue') {
+					return;
+				}
+			}
 
 			let ws = path.dirname(activeEditor.document.uri.fsPath);
 			let workspaceName = ws.split(path.sep).pop();
 			let fileName = path.basename(activeEditor.document.uri.fsPath, '.dsl');
 
 			let containerName = createRandomString();
+			const port = await getAvailablePort();
 
-			portfinder.getPort(function (_: any, port: any) {
-				console.log(`Starting ${workspaceName} Structurizr Preview...`);
+			console.log(`Starting ${workspaceName} Structurizr Preview...`);
 
-				cp.exec(`docker run -p ${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" -e STRUCTURIZR_AUTOREFRESHINTERVAL=${autoRefresh} ${img}:${tag} ${cmd}`,
-					function (_, stdout, __) {
-						console.log(stdout);
-					});
+			cp.exec(`docker run -p ${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" -e STRUCTURIZR_AUTOREFRESHINTERVAL=${autoRefresh} ${img}:${tag} ${cmd}`,
+				function (_, stdout, __) {
+					console.log(stdout);
+				});
 
-				const previewUrl = !cmd ? `http://localhost:${port}/workspace/diagrams` : `http://localhost:${port}/workspace/1/diagrams`;
-				void openPreviewToSide(previewUrl);
-			});
+			const previewUrl = !cmd ? `http://localhost:${port}/workspace/diagrams` : `http://localhost:${port}/workspace/1/diagrams`;
+			void openPreviewToSide(previewUrl);
 
 			workspace.onDidCloseTextDocument(e => {
 				if (activeEditor.document === e) {
@@ -65,6 +77,28 @@ function hasDocker() {
 	} catch (e) {
 		return false;
 	}
+}
+
+function hasDockerImage(imageName: string) {
+	try {
+		cp.execSync(`docker image inspect ${imageName}`, { stdio: 'ignore' });
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
+
+function getAvailablePort(): Promise<number> {
+	return new Promise((resolve, reject) => {
+		portfinder.getPort((error: any, port: any) => {
+			if (error) {
+				reject(error);
+				return;
+			}
+
+			resolve(port);
+		});
+	});
 }
 
 function createRandomString() {
