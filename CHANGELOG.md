@@ -4,25 +4,26 @@
 
 ### Breaking
 
-+ **Structurizr Lite Preview** becomes **Structurizr Preview**
++ **Structurizr Lite Preview** is now **Structurizr Preview**
 
 > [!CAUTION]
 > Settings key changes:
 > - `structurizrLiteTag` has been renamed to `structurizrTag`, e.g., `latest` or `2025.11.08`.  
-Default to `2026.05.22` which is the latest `structurizr/structurizr` named image ATTOW, `2025.11.08` being the latest `structurizr/lite` named image.
+> Defaults to `2026.05.22`, the latest `structurizr/structurizr` image at the time of writing; `2025.11.08` is the latest `structurizr/lite` image.
 > - `structurizrImage` has been introduced to specify the image to use, e.g., `structurizr/structurizr` or `structurizr/lite`.  
-Default to the brand-new `structurizr/structurizr` for sustainability.
-> - `structurizrCmd` has been introduced to cope with `structurizr/structurizr` usage, e.g., `local`.  
-Default to `local` for `structurizr/structurizr` usage. Can be left empty for `structurizr/lite` usage.
-> - `structurizrAutoRefreshInterval` has been introduced to deal with [auto-refresh](https://docs.structurizr.com/local/configuration#auto-refresh) by specifying a number of milliseconds.  
-Default to `0`, i.e., auto-refresh disabled. 
+> Defaults to `structurizr/structurizr`.
+> - `structurizrCmd` has been introduced to support `structurizr/structurizr`, e.g., `local`.  
+> Defaults to `local`. Leave empty for `structurizr/lite`.
+> - `structurizrAutoRefreshInterval` has been introduced to configure [auto-refresh](https://docs.structurizr.com/local/configuration#auto-refresh) in milliseconds.  
+> Defaults to `0` (disabled).
 
 ### New features
 
-* Accommodate both structurizr lite and brand-new unified structurizr experience.
-* Use simple browser for preview, mirroring "Open Preview to the Side"
-* Surface auto-refresh facility 
-* Warn about missing Docker image
+* Support both Structurizr Lite and the new unified Structurizr image
+* Prompt user before downloading a missing Structurizr Docker image
+* Wait for Structurizr to be ready before opening the preview
+* Open preview to the side using Simple Browser, matching VS Code's "Open Preview to the Side" behaviour
+* Expose auto-refresh support
 
 ## 1.2.3 - January 2026
 

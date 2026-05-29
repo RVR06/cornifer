@@ -1,8 +1,13 @@
 import * as cp from 'child_process';
+import * as http from 'http';
 import * as path from 'path';
 import * as portfinder from 'portfinder';
 import {
+	CancellationToken,
+	CancellationTokenSource,
 	ExtensionContext,
+	Progress,
+	ProgressLocation,
 	commands,
 	window,
 	workspace
@@ -41,6 +46,12 @@ export function setupPreviewProvider(context: ExtensionContext) {
 				if (choice !== 'Continue') {
 					return;
 				}
+
+				const pulled = await pullDockerImage(imageName);
+				if (!pulled) {
+					window.showErrorMessage(`Failed to pull Docker image ${imageName}.`);
+					return;
+				}
 			}
 
 			let ws = path.dirname(activeEditor.document.uri.fsPath);
@@ -58,11 +69,14 @@ export function setupPreviewProvider(context: ExtensionContext) {
 				});
 
 			const previewUrl = !cmd ? `http://localhost:${port}/workspace/diagrams` : `http://localhost:${port}/workspace/1/diagrams`;
-			void openPreviewToSide(previewUrl);
+			const cts = new CancellationTokenSource();
+			void waitAndOpenPreview(previewUrl, cts.token);
 
 			workspace.onDidCloseTextDocument(e => {
 				if (activeEditor.document === e) {
 					console.log(`Stopping ${workspaceName} Structurizr Preview ...`);
+					cts.cancel();
+					cts.dispose();
 					cp.execSync(`docker rm -f ${containerName}`, { stdio: 'ignore' });
 				}
 			});
@@ -88,6 +102,22 @@ function hasDockerImage(imageName: string) {
 	}
 }
 
+async function pullDockerImage(imageName: string): Promise<boolean> {
+	return window.withProgress(
+		{
+			location: ProgressLocation.Notification,
+			title: 'Cornifer',
+			cancellable: false
+		},
+		(progress) => {
+			progress.report({ message: `Pulling ${imageName}…` });
+			return new Promise<boolean>(resolve => {
+			cp.exec(`docker pull ${imageName}`, (error) => resolve(!error));
+			});
+		}
+	);
+}
+
 function getAvailablePort(): Promise<number> {
 	return new Promise((resolve, reject) => {
 		portfinder.getPort((error: any, port: any) => {
@@ -110,6 +140,58 @@ function createRandomString() {
 	}
 
 	return text;
+}
+
+async function waitAndOpenPreview(previewUrl: string, token: CancellationToken) {
+	await window.withProgress(
+		{
+			location: ProgressLocation.Notification,
+			title: 'Cornifer',
+			cancellable: false
+		},
+		async (progress: Progress<{ message: string }>, _token: CancellationToken) => {
+			progress.report({ message: 'Starting container…' });
+			const ready = await pollUntilReady(previewUrl, progress, token);
+			if (ready) {
+				await openPreviewToSide(previewUrl);
+			}
+		}
+	);
+}
+
+async function pollUntilReady(url: string, progress: Progress<{ message: string }>, token: CancellationToken): Promise<boolean> {
+	const maxAttempts = 60;
+	for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+		if (token.isCancellationRequested) {
+			return false;
+		}
+
+		const status = await probeStatus(url);
+		if (status !== undefined && status < 400) {
+			return true;
+		}
+
+		progress.report({ message: `Spinning up your architecture canvas… (${attempt}/${maxAttempts})` });
+		await delay(1000);
+	}
+
+	return false;
+}
+
+function probeStatus(url: string): Promise<number | undefined> {
+	return new Promise(resolve => {
+		const req = http.get(url, { timeout: 1000 }, res => {
+			resolve(res.statusCode);
+			res.resume();
+		});
+
+		req.on('error', () => resolve(undefined));
+		req.on('timeout', () => { req.destroy(); resolve(undefined); });
+	});
+}
+
+function delay(ms: number): Promise<void> {
+	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function openPreviewToSide(previewUrl: string) {
