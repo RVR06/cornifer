@@ -1,5 +1,30 @@
 # Changelog
 
+## 2.0.0 - May 2026
+
+### Breaking
+
++ **Structurizr Lite Preview** is now **Structurizr Preview**
+
+> [!CAUTION]
+> Settings key changes:
+> - `structurizrLiteTag` has been renamed to `structurizrTag`, e.g., `latest` or `2025.11.08`.  
+> Defaults to `2026.05.22`, the latest `structurizr/structurizr` image at the time of writing; `2025.11.08` is the latest `structurizr/lite` image.
+> - `structurizrImage` has been introduced to specify the image to use, e.g., `structurizr/structurizr` or `structurizr/lite`.  
+> Defaults to `structurizr/structurizr`.
+> - `structurizrCmd` has been introduced to support `structurizr/structurizr`, e.g., `local`.  
+> Defaults to `local`. Leave empty for `structurizr/lite`.
+> - `structurizrAutoRefreshInterval` has been introduced to configure [auto-refresh](https://docs.structurizr.com/local/configuration#auto-refresh) in milliseconds.  
+> Defaults to `0` (disabled).
+
+### New features
+
+* Support both Structurizr Lite and the new unified Structurizr image
+* Prompt user before downloading a missing Structurizr Docker image
+* Wait for Structurizr to be ready before opening the preview
+* Open preview to the side using Simple Browser, matching VS Code's "Open Preview to the Side" behaviour
+* Expose auto-refresh support
+
 ## 1.2.3 - January 2026
 
 ### Bugs fixed
