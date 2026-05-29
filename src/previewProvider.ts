@@ -3,9 +3,7 @@ import * as path from 'path';
 import * as portfinder from 'portfinder';
 import {
 	ExtensionContext,
-	Uri,
 	commands,
-	env,
 	window,
 	workspace
 } from 'vscode';
@@ -47,8 +45,7 @@ export function setupPreviewProvider(context: ExtensionContext) {
 					});
 
 				const previewUrl = !cmd ? `http://localhost:${port}/workspace/diagrams` : `http://localhost:${port}/workspace/1/diagrams`;
-				commands.executeCommand('simpleBrowser.show', previewUrl, 'Structurizr Preview')
-					.then(undefined, () => env.openExternal(Uri.parse(previewUrl)));
+				void openPreviewToSide(previewUrl);
 			});
 
 			workspace.onDidCloseTextDocument(e => {
@@ -79,4 +76,12 @@ function createRandomString() {
 	}
 
 	return text;
+}
+
+async function openPreviewToSide(previewUrl: string) {
+	if (window.tabGroups.all.length === 1) {
+		await commands.executeCommand('workbench.action.newGroupRight');
+	}
+	await commands.executeCommand('workbench.action.focusRightGroup');
+	await commands.executeCommand('simpleBrowser.show', previewUrl);
 }
