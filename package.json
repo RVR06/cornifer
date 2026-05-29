@@ -238,6 +238,11 @@
 					"default": "local",
 					"description": "(Opt) Structurizr docker cmd used for preview."
 				},
+					"cornifer.structurizrAutoRefreshInterval": {
+					"type": "integer",
+					"default": 0,
+					"description": "(Opt) Structurizr auto-refresh interval in milliseconds. Set to 0 to disable auto-refresh."
+				},
 				"cornifer.disablePrompt": {
 					"type": "boolean",
 					"default": false,

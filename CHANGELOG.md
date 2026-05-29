@@ -14,6 +14,8 @@ Default to `2026.05.22` which is the latest `structurizr/structurizr` named imag
 Default to the brand-new `structurizr/structurizr` for sustainability.
 > - `structurizrCmd` has been introduced to cope with `structurizr/structurizr` usage, e.g., `local`.  
 Default to `local` for `structurizr/structurizr` usage. Can be left empty for `structurizr/lite` usage.
+> - `structurizrAutoRefreshInterval` has been introduced to deal with [auto-refresh](https://docs.structurizr.com/local/configuration#auto-refresh) by specifying a number of milliseconds.  
+Default to `0`, i.e., auto-refresh disabled. 
 
 ## 1.2.3 - January 2026
 

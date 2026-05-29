@@ -30,6 +30,7 @@ export function setupPreviewProvider(context: ExtensionContext) {
 			let img = workspace.getConfiguration('cornifer').structurizrImage;
 			let tag = workspace.getConfiguration('cornifer').structurizrTag;
 			let cmd = workspace.getConfiguration('cornifer').structurizrCmd;
+			let autoRefresh = workspace.getConfiguration('cornifer').structurizrAutoRefreshInterval;
 
 			let ws = path.dirname(activeEditor.document.uri.fsPath);
 			let workspaceName = ws.split(path.sep).pop();
@@ -40,7 +41,7 @@ export function setupPreviewProvider(context: ExtensionContext) {
 			portfinder.getPort(function (_: any, port: any) {
 				console.log(`Starting ${workspaceName} Structurizr Preview...`);
 
-				cp.exec(`docker run -p ${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" ${img}:${tag} ${cmd}`,
+				cp.exec(`docker run -p ${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" -e STRUCTURIZR_AUTOREFRESHINTERVAL=${autoRefresh} ${img}:${tag} ${cmd}`,
 					function (_, stdout, __) {
 						console.log(stdout);
 					});
