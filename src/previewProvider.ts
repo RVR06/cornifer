@@ -40,12 +40,14 @@ export function setupPreviewProvider(context: ExtensionContext) {
 			portfinder.getPort(function (_: any, port: any) {
 				console.log(`Starting ${workspaceName} Structurizr Preview...`);
 
-				cp.exec(`docker run -p 127.0.0.1:${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" ${img}:${tag} ${cmd}`,
+				cp.exec(`docker run -p ${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" ${img}:${tag} ${cmd}`,
 					function (_, stdout, __) {
 						console.log(stdout);
 					});
 
-				env.openExternal(Uri.parse(`http://localhost:${port}/workspace/diagrams`));
+				const previewUrl = !cmd ? `http://localhost:${port}/workspace/diagrams` : `http://localhost:${port}/workspace/1/diagrams`;
+				commands.executeCommand('simpleBrowser.show', previewUrl, 'Structurizr Preview')
+					.then(undefined, () => env.openExternal(Uri.parse(previewUrl)));
 			});
 
 			workspace.onDidCloseTextDocument(e => {

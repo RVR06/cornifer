@@ -230,7 +230,7 @@
 				},
 				"cornifer.structurizrTag": {
 					"type": "string",
-					"default": "2026.04.19",
+					"default": "2026.05.22",
 					"description": "Structurizr docker tag used for preview."
 				},
 				"cornifer.structurizrCmd": {
