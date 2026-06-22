@@ -30,7 +30,7 @@ export class IconManager {
             'container': CompletionItemKind.Field,
             'component': CompletionItemKind.Field,
             'relationship': CompletionItemKind.Enum,
-            '!ref': CompletionItemKind.Function,
+            '!element': CompletionItemKind.Function,
             '!include': CompletionItemKind.Function,
             'deploymentEnvironment': CompletionItemKind.Class,
             'deploymentGroup': CompletionItemKind.Interface,
@@ -59,7 +59,7 @@ export class IconManager {
             'container': SymbolKind.Field,
             'component': SymbolKind.Field,
             'relationship': SymbolKind.Enum,
-            '!ref': SymbolKind.Function,
+            '!element': SymbolKind.Function,
             '!include': SymbolKind.Function,
 
             'deploymentEnvironment': SymbolKind.Class,

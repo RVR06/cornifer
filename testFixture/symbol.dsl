@@ -63,7 +63,7 @@ workspace "MILA" "Multiple Images Lightweight Acquisition" {
 		
 		!include fragments/observability.model.dslf
 		
-		!ref obs {
+		!element obs {
 			tags "#external"
 		}
 		

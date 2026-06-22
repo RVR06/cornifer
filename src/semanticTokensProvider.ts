@@ -84,8 +84,8 @@ class DocumentSemanticTokensProvider implements DocumentSemanticTokensProvider {
 						return;
 					}
 
-					// Search for !ref
-					if (line.indexOf('!ref') !== -1) {
+					// Search for !element
+					if (line.indexOf('!element') !== -1) {
 						const tokens = line.split(' ');
 						instances.push({
 							name: tokens[1].trim(),

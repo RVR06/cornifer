@@ -4,7 +4,7 @@ workspace "name" "description" {
 	
 	model {
 		person = person "name" "description" "tags"
-		enterprise "name" {
+		group "name" {
 			system = softwareSystem "name" "description" "tags" {
 				
 			}
@@ -13,13 +13,13 @@ workspace "name" "description" {
 		person -> system "description" "technology" "tags"
 		person -> system2 "description" "technology" "tags"
 		
-		!ref obs {
+		!element obs {
 			tags "#external"
 		}
 		
 		system -> obs "description" "technology" "tags"
 		
-		!ref aaa.bbb {
+		!element aaa.bbb {
 			tags "#external"
 		}
 		

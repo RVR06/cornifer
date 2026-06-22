@@ -176,7 +176,7 @@
     "repository": {
         "ref": {
             "name": "meta.ref",
-            "begin": "(?i)(\\s*)(!ref)(\\s+)(\\w+)(\\s+)(\\{)",
+            "begin": "(?i)(\\s*)(!element)(\\s+)(\\w+)(\\s+)(\\{)",
             "end": "\\}",
             "beginCaptures": {
                 "2": {

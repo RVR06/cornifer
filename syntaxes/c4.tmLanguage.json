@@ -106,7 +106,7 @@
         },
         "constant": {
             "name": "meta.mark",
-            "match": "(?i)(\\s*)(!)((?!ref|include)\\w+)(\\s+)(\\w+)((\\s+)\"(.*?)\")*",
+            "match": "(?i)(\\s*)(!)((?!element|include)\\w+)(\\s+)(\\w+)((\\s+)\"(.*?)\")*",
             "captures": {
                 "2": {
                     "name": "keyword.section"
@@ -142,7 +142,7 @@
         },
         "ref": {
             "name": "meta.ref",
-            "begin": "(?i)(\\s*)(!ref)(\\s+)(.*?)(\\s+)(\\{)",
+            "begin": "(?i)(\\s*)(!element)(\\s+)(.*?)(\\s+)(\\{)",
             "end": "\\}",
             "beginCaptures": {
                 "2": {

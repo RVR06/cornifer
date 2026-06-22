@@ -26,16 +26,16 @@ suite('Definition provider', () => {
 			new Location(docUri, new Position(7, 3)));
 	});
 
-	test('should find a !ref reference', async () => {
+	test('should find a !element reference', async () => {
 		await match(docUri,
 			new Position(19, 13), // [o|bs] 
-			new Location(docUri, new Position(15, 7)));
+			new Location(docUri, new Position(15, 11)));
 	});
 
-	test('should find a complex !ref reference', async () => {
+	test('should find a complex !element reference', async () => {
 		await match(docUri,
 			new Position(25, 17), // [aaa.b|bb.ccc] 
-			new Location(docUri, new Position(21, 7)));
+			new Location(docUri, new Position(21, 11)));
 	});
 
 	test('should find a !include file', async () => {

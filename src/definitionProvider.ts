@@ -43,13 +43,13 @@ export function setupDefinitionProvider(context: ExtensionContext) {
                                     });
                                 }
 
-                                // Search for !ref
-                                if (line.indexOf('!ref') !== -1) {
+                                // Search for !element
+                                if (line.indexOf('!element') !== -1) {
                                     const tokens = line.split(' ');
 
                                     elements.push({
                                         name: tokens[1].trim(),
-                                        position: new Position(i, document.lineAt(i).firstNonWhitespaceCharacterIndex + 5), // 5 == !ref shift
+                                        position: new Position(i, document.lineAt(i).firstNonWhitespaceCharacterIndex + 9), // 9 == !element shift
                                         uri: document.uri
                                     });
                                 }

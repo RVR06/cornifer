@@ -51,7 +51,7 @@ workspace "name" "description" {
 		!include ref.model.dslf
 		
 		# Amend fragment
-		!ref ref {
+		!element ref {
 			tags "#external"
 		}
 		

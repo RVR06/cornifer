@@ -20,7 +20,7 @@ export function setupDocumentSymbolProvider(context: ExtensionContext) {
 
     const keywords = [
         'workspace', 'configuration', 'model', 'person', 'enterprise', 'group',
-        'softwareSystem', 'container', 'component', 'perspectives', '!ref', '!include',
+        'softwareSystem', 'container', 'component', 'perspectives', '!element', '!include',
         'deploymentEnvironment', 'deploymentGroup', 'deploymentNode', 'infrastructureNode',
         'softwareSystemInstance', 'containerInstance',
         'views', 'theme', 'branding', 'styles', 'properties', 'element', 'relationship',
