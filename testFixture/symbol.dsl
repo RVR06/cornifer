@@ -165,8 +165,7 @@ workspace "MILA" "Multiple Images Lightweight Acquisition" {
 	}
 	
 	views {
-		theme https://raw.githubusercontent.com/rvr06/cornifer-contrib/main/themes/topology/theme.json
-		theme https://raw.githubusercontent.com/rvr06/cornifer-contrib/main/themes/heraldry2/theme.json
+		theme https://raw.githubusercontent.com/rvr06/cornifer-contrib/main/themes/semantic/theme.json
 		
 		!include fragments/observability.views.dslf
 		
