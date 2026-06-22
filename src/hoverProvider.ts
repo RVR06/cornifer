@@ -101,11 +101,6 @@ export function setupHoverProvider(context: ExtensionContext) {
 						`[$(book)](${link})\n`,
 						'Each `workspace` must contain a `model` block, inside which `elements` and `relationships` are defined.'
 					],
-				enterprise:
-					[
-						'### Enterprise',
-						'The `enterprise` keyword is now deprecated.',
-					],
 				views:
 					['```c4u',
 						'views {}',

@@ -1,0 +1,5 @@
+obs = softwareSystem "Observability" "" "" {
+	otel = container "OpenTelemetry Collector" "Vendor-agnostic implementation on how to receive, process and export telemetry data" "" "#external, #otel" {
+		url https://github.com/open-telemetry/opentelemetry-collector
+	}
+}

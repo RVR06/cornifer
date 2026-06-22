@@ -1,0 +1,4 @@
+container obs "Observability-C4-2" "" {
+	include *
+	autolayout
+}

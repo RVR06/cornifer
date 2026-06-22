@@ -19,7 +19,7 @@ import { IconManager } from './iconManager';
 export function setupDocumentSymbolProvider(context: ExtensionContext) {
 
     const keywords = [
-        'workspace', 'configuration', 'model', 'person', 'enterprise', 'group',
+        'workspace', 'configuration', 'model', 'person', 'group',
         'softwareSystem', 'container', 'component', 'perspectives', '!element', '!include',
         'deploymentEnvironment', 'deploymentGroup', 'deploymentNode', 'infrastructureNode',
         'softwareSystemInstance', 'containerInstance',

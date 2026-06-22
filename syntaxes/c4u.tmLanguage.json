@@ -98,9 +98,6 @@
             "include": "source.c4#person_oneliner"
         },
         {
-            "include": "source.c4#enterprise"
-        },
-        {
             "include": "source.c4#softwareSystem"
         },
         {

@@ -1,7 +1,7 @@
 # © 2022 DAEDALUS, Inc.  Unauthorized use, distribution, or duplication is prohibited.
 
-!constant FRONTEND "Focus on frontend"
-!constant BACKEND "Focus on backend"
+!const FRONTEND "Focus on frontend"
+!const BACKEND "Focus on backend"
 
 workspace "MILA" "Multiple Images Lightweight Acquisition" {
 	!identifiers hierarchical
@@ -11,7 +11,7 @@ workspace "MILA" "Multiple Images Lightweight Acquisition" {
 		matt = person "Material scientist" "Leverages smartphone facilities to capture materials properties." ""
 		simon = person "Simulation engineer" "Crafts physics-based simulation." ""
 		
-		enterprise "DAEDALUS" {
+		group "DAEDALUS" {
 			mila = softwareSystem "MILA" "Provides lightweight material acquisition facilities & crafts self-contained material assets." "" {
 				spa = container "Web application" "Provides limited facilities to upload constrained pictures set." "Blazor" "#web" {
 					perspectives {
@@ -67,7 +67,7 @@ workspace "MILA" "Multiple Images Lightweight Acquisition" {
 			tags "#external"
 		}
 		
-		system -> obs "description" "technology" "tags"
+		mila -> obs "description" "technology" "tags"
 		
 		dev_ = deploymentEnvironment "dev" {
 			deploymentNode "User workstation" "" "Mircrosoft Windows 10" "#windows" 1 {
@@ -165,7 +165,8 @@ workspace "MILA" "Multiple Images Lightweight Acquisition" {
 	}
 	
 	views {
-		theme https://raw.githubusercontent.com/rvr06/cornifer-contrib/main/themes/semantic/theme.json
+		theme https://raw.githubusercontent.com/rvr06/cornifer-contrib/main/themes/topology/theme.json
+		theme https://raw.githubusercontent.com/rvr06/cornifer-contrib/main/themes/heraldry2/theme.json
 		
 		!include fragments/observability.views.dslf
 		

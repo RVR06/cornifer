@@ -52,7 +52,6 @@ export class IconManager {
             'workspace': SymbolKind.Module,
             'group': SymbolKind.Module,
             'model': SymbolKind.Module,
-            'enterprise': SymbolKind.Module,
             'perspectives': SymbolKind.Null,
             'person': SymbolKind.Constant,
             'softwareSystem': SymbolKind.Field,

@@ -8,7 +8,7 @@ workspace "name" "description" {
 	model {
 		# Comment
 		user = person "name" "description" "tags"
-		enterprise "name" {
+		group "name" {
 			# Comment
 			system1 = softwareSystem "name" "description" "tags" {
 				# Comment
