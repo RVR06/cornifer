@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.0 - June 2026
+
+### Breaking
+
+* `!ref` keyword is superseeded by `!element` keyword
+*  `enterprise` keyword is decommissioned
+
 ## 2.0.0 - May 2026
 
 ### Breaking
