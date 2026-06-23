@@ -98,9 +98,6 @@
             "include": "source.c4#person_oneliner"
         },
         {
-            "include": "source.c4#enterprise"
-        },
-        {
             "include": "source.c4#softwareSystem"
         },
         {
@@ -176,7 +173,7 @@
     "repository": {
         "ref": {
             "name": "meta.ref",
-            "begin": "(?i)(\\s*)(!ref)(\\s+)(\\w+)(\\s+)(\\{)",
+            "begin": "(?i)(\\s*)(!element)(\\s+)(\\w+)(\\s+)(\\{)",
             "end": "\\}",
             "beginCaptures": {
                 "2": {

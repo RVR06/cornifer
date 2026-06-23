@@ -21,7 +21,7 @@
                     "children": []
                 },
                 {
-                    "name": "enterprise",
+                    "name": "DAEDALUS",
                     "kind": "1",
                     "range": "[13.2, 45.2]",
                     "children": [
@@ -117,7 +117,7 @@
                     "children": []
                 },
                 {
-                    "name": "!ref",
+                    "name": "!element",
                     "kind": "11",
                     "range": "[65.2, 67.2]",
                     "children": []

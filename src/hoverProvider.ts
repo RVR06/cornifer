@@ -47,29 +47,6 @@ export function setupHoverProvider(context: ExtensionContext) {
 						'!include observability.views.dslf',
 						'```'
 					],
-				ref:
-					['```c4u',
-						'!ref identifier {}',
-						'```',
-						'---',
-						'>',
-						'```c4',
-						'workspace "" "" {',
-						'model {',
-						'!ref identifier {}',
-						'```',
-						'---',
-						'### Ref',
-						`[$(book)](${link})\n`,
-						'References a previously defined element or relationship.',
-						'',
-						'$(code)',
-						'```c4u',
-						'!ref obs {',
-						'  tags "#external"',
-						'}',
-						'```'
-					],
 				workspace:
 					['```c4u',
 						'workspace "name" "description" {}',
@@ -123,11 +100,6 @@ export function setupHoverProvider(context: ExtensionContext) {
 						'### Model',
 						`[$(book)](${link})\n`,
 						'Each `workspace` must contain a `model` block, inside which `elements` and `relationships` are defined.'
-					],
-				enterprise:
-					[
-						'### Enterprise',
-						'The `enterprise` keyword is now deprecated.',
 					],
 				views:
 					['```c4u',

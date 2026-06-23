@@ -106,7 +106,7 @@
         },
         "constant": {
             "name": "meta.mark",
-            "match": "(?i)(\\s*)(!)((?!ref|include)\\w+)(\\s+)(\\w+)((\\s+)\"(.*?)\")*",
+            "match": "(?i)(\\s*)(!)((?!element|include)\\w+)(\\s+)(\\w+)((\\s+)\"(.*?)\")*",
             "captures": {
                 "2": {
                     "name": "keyword.section"
@@ -142,7 +142,7 @@
         },
         "ref": {
             "name": "meta.ref",
-            "begin": "(?i)(\\s*)(!ref)(\\s+)(.*?)(\\s+)(\\{)",
+            "begin": "(?i)(\\s*)(!element)(\\s+)(.*?)(\\s+)(\\{)",
             "end": "\\}",
             "beginCaptures": {
                 "2": {
@@ -246,9 +246,6 @@
                 },
                 {
                     "include": "#person_oneliner"
-                },
-                {
-                    "include": "#enterprise"
                 },
                 {
                     "include": "#group"
@@ -467,59 +464,6 @@
                     "name": "string.tag"
                 }
             }
-        },
-        "enterprise": {
-            "name": "meta.enterprise",
-            "begin": "(?i)(\\s*)(enterprise)(\\s+)\"(.*?)\"(\\s+)(\\{)",
-            "end": "\\}",
-            "beginCaptures": {
-                "2": {
-                    "name": "keyword.enterprise"
-                },
-                "4": {
-                    "name": "string.name"
-                },
-                "6": {
-                    "name": "keyword.enterprise"
-                }
-            },
-            "endCaptures": {
-                "0": {
-                    "name": "keyword.enterprise"
-                }
-            },
-            "patterns": [
-                {
-                    "include": "#comment"
-                },
-                {
-                    "include": "#person"
-                },
-                {
-                    "include": "#person_oneliner"
-                },
-                {
-                    "include": "#softwareSystem"
-                },
-                {
-                    "include": "#softwareSystem_oneliner"
-                },
-                {
-                    "include": "#group"
-                },
-                {
-                    "include": "#relationship2"
-                },
-                {
-                    "include": "#relationship"
-                },
-                {
-                    "include": "#include"
-                },
-                {
-                    "include": "#ref"
-                }
-            ]
         },
         "group": {
             "name": "meta.group",
