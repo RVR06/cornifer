@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.1 - July 2026
+
+### Bugs fixed
+
+* semantic highlighting for `!element` reference issue 
+
 ## 2.1.0 - June 2026
 
 ### Breaking
