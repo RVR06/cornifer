@@ -104,7 +104,7 @@ class DocumentSemanticTokensProvider implements DocumentSemanticTokensProvider {
 					}
 
 					// Match word
-					let offset = 0;
+					let offset = line.trimStart().length;
 					var tokens = line.split(/[ ,]/);
 					tokens.forEach(token => {
 						if (!token.startsWith('"')) {
