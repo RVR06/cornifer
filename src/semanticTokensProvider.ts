@@ -104,7 +104,8 @@ class DocumentSemanticTokensProvider implements DocumentSemanticTokensProvider {
 					}
 
 					// Match word
-					let offset = line.trimStart().length;
+					let offset = 0
+					let leadingTabs = line.length - line.trimStart().length;
 					var tokens = line.split(/[ ,]/);
 					tokens.forEach(token => {
 						if (!token.startsWith('"')) {
@@ -114,8 +115,8 @@ class DocumentSemanticTokensProvider implements DocumentSemanticTokensProvider {
 								if (match) {
 									semantics.push({
 										line: i,
-										offset: offset,
-										length: word.length,
+										offset: 0 == offset ? offset + leadingTabs : offset,
+										length: 0 == offset ? word.length - leadingTabs : word.length,
 										tokenType: match.type
 									});
 								}
