@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.2 - August 2026
+
+### Bugs fixed
+
+* semantic highlighting side effect 
+
 ## 2.1.1 - July 2026
 
 ### Bugs fixed
