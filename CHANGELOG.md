@@ -1,23 +1,34 @@
 # Changelog
 
+## 2.2.0 - September 2026
+
+### New features
+
+* Support WSLC as an alternative container runtime for the Structurizr preview
+* Add the `cornifer.containerRuntime` setting to choose between Docker and WSLC
+
+### Bugs fixed
+
+* Work around the deprecated `STRUCTURIZR_WORKSPACE_FILENAME` variable to enable workspace preview regardless of the file name
+
 ## 2.1.2 - August 2026
 
 ### Bugs fixed
 
-* semantic highlighting side effect 
+* Fix a semantic-highlighting side effect
 
 ## 2.1.1 - July 2026
 
 ### Bugs fixed
 
-* semantic highlighting for `!element` reference issue 
+* Fix semantic highlighting for `!element` references
 
 ## 2.1.0 - June 2026
 
 ### Breaking
 
-* `!ref` keyword is superseeded by `!element` keyword
-*  `enterprise` keyword is decommissioned
+* The `!ref` keyword is superseded by the `!element` keyword
+* The `enterprise` keyword is deprecated
 
 ## 2.0.0 - May 2026
 
@@ -48,7 +59,7 @@
 
 ### Bugs fixed
 
-* Fix #31: mirror markdown for preview default shortcut.
+* Fix #31: mirror Markdown for the default preview shortcut.
 * Fix #34: improve outline/breadcrumb to handle enriched `relationships`.
 * Fix #35: improve outline/breadcrumb to handle string for `tags`.
 
@@ -62,7 +73,7 @@
 
 ### Bugs fixed
 
-* Fix GitHub Copilot extension conflict, preventing Cornifer to wake up on `.dsl` files
+* Fix a GitHub Copilot extension conflict that prevented Cornifer from activating for `.dsl` files
 
 ## 1.2.0 - September 2025
 
@@ -98,7 +109,7 @@
 
 ### Bugs fixed
 
-* Fix hover behavior to avoid noising extension host output
+* Fix hover behavior to avoid noisy extension host output
 
 ## 0.31.2 - January 2025
 
@@ -125,7 +136,7 @@
 
 ### Bugs fixed
 
-* Fix Quote-less `tags` for `element` & `relationship` styles
+* Fix unquoted `tags` for `element` and `relationship` styles
 * Add missing `configuration` support
 * Add `properties`, `description`, `technology` & `tags` as children elements
 * Support loose `tags` syntax

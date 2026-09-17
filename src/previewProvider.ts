@@ -20,8 +20,9 @@ export function setupPreviewProvider(context: ExtensionContext) {
 	context.subscriptions.push(
 		commands.registerCommand('cornifer.preview', async () => {
 
-			if (!hasDocker()) {
-				console.error('Preview Structurizr requires Docker to be installed');
+			let runtime = getContainerRuntime();
+			if (!hasContainerRuntime(runtime)) {
+				console.error('Preview Structurizr requires a container runtime to be installed');
 				return;
 			}
 
@@ -36,9 +37,9 @@ export function setupPreviewProvider(context: ExtensionContext) {
 			let autoRefresh = workspace.getConfiguration('cornifer').structurizrAutoRefreshInterval;
 			const imageName = `${img}:${tag}`;
 
-			if (!hasDockerImage(imageName)) {
+			if (!hasContainerImage(runtime, imageName)) {
 				const choice = await window.showWarningMessage(
-					`Docker image ${imageName} is not available locally and will be downloaded. This may take a while. Continue?`,
+					`${runtime} image ${imageName} is not available locally and will be downloaded. This may take a while. Continue?`,
 					'Continue',
 					'Cancel'
 				);
@@ -47,23 +48,23 @@ export function setupPreviewProvider(context: ExtensionContext) {
 					return;
 				}
 
-				const pulled = await pullDockerImage(imageName);
+				const pulled = await pullContainerImage(runtime, imageName);
 				if (!pulled) {
-					window.showErrorMessage(`Failed to pull Docker image ${imageName}.`);
+					window.showErrorMessage(`Failed to pull ${runtime} image ${imageName}.`);
 					return;
 				}
 			}
 
 			let ws = path.dirname(activeEditor.document.uri.fsPath);
 			let workspaceName = ws.split(path.sep).pop();
-			let fileName = path.basename(activeEditor.document.uri.fsPath, '.dsl');
+			let workspaceFile = activeEditor.document.uri.fsPath;
 
 			let containerName = createRandomString();
 			const port = await getAvailablePort();
 
 			console.log(`Starting ${workspaceName} Structurizr Preview...`);
 
-			cp.exec(`docker run -p ${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -e STRUCTURIZR_WORKSPACE_FILENAME="${fileName}" -e STRUCTURIZR_AUTOREFRESHINTERVAL=${autoRefresh} ${img}:${tag} ${cmd}`,
+			cp.exec(`${runtime} run -p ${port}:8080 --name ${containerName} -v "${ws}:/usr/local/structurizr" -v "${workspaceFile}:/usr/local/structurizr/workspace.dsl" -e STRUCTURIZR_AUTOREFRESHINTERVAL=${autoRefresh} ${img}:${tag} ${cmd}`,
 				function (_, stdout, __) {
 					console.log(stdout);
 				});
@@ -77,32 +78,40 @@ export function setupPreviewProvider(context: ExtensionContext) {
 					console.log(`Stopping ${workspaceName} Structurizr Preview ...`);
 					cts.cancel();
 					cts.dispose();
-					cp.execSync(`docker rm -f ${containerName}`, { stdio: 'ignore' });
+					cp.execSync(`${runtime} rm -f ${containerName}`, { stdio: 'ignore' });
 				}
 			});
 		}
 		));
 }
 
-function hasDocker() {
+const containerRuntimes = ['docker', 'wslc'] as const;
+type ContainerRuntime = typeof containerRuntimes[number];
+
+function getContainerRuntime(): ContainerRuntime {
+	const runtime = workspace.getConfiguration('cornifer').containerRuntime;
+	return containerRuntimes.includes(runtime) ? runtime : 'docker';
+}
+
+function hasContainerRuntime(runtime: ContainerRuntime) {
 	try {
-		cp.execSync('docker --version', { stdio: 'ignore' });
+		cp.execSync(`${runtime} --version`, { stdio: 'ignore' });
 		return true;
 	} catch (e) {
 		return false;
 	}
 }
 
-function hasDockerImage(imageName: string) {
+function hasContainerImage(runtime: ContainerRuntime, imageName: string) {
 	try {
-		cp.execSync(`docker image inspect ${imageName}`, { stdio: 'ignore' });
+		cp.execSync(`${runtime} image inspect ${imageName}`, { stdio: 'ignore' });
 		return true;
 	} catch (e) {
 		return false;
 	}
 }
 
-async function pullDockerImage(imageName: string): Promise<boolean> {
+async function pullContainerImage(runtime: ContainerRuntime, imageName: string): Promise<boolean> {
 	return window.withProgress(
 		{
 			location: ProgressLocation.Notification,
@@ -112,7 +121,7 @@ async function pullDockerImage(imageName: string): Promise<boolean> {
 		(progress) => {
 			progress.report({ message: `Pulling ${imageName}…` });
 			return new Promise<boolean>(resolve => {
-			cp.exec(`docker pull ${imageName}`, (error) => resolve(!error));
+			cp.exec(`${runtime} pull ${imageName}`, (error) => resolve(!error));
 			});
 		}
 	);
