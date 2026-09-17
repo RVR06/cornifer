@@ -20,7 +20,7 @@ export function setupPreviewProvider(context: ExtensionContext) {
 	context.subscriptions.push(
 		commands.registerCommand('cornifer.preview', async () => {
 
-						let runtime = getContainerRuntime();
+			let runtime = getContainerRuntime();
 			if (!hasContainerRuntime(runtime)) {
 				console.error('Preview Structurizr requires a container runtime to be installed');
 				return;
