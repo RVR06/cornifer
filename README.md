@@ -1,7 +1,7 @@
 # C4 DSL Visual Studio Code Extension
 
-![](https://img.shields.io/badge/last_updated-august_2026-0c7cba)
-![](https://img.shields.io/badge/vsix-v2.1.2-ef8d22)
+![](https://img.shields.io/badge/last_updated-september_2026-0c7cba)
+![](https://img.shields.io/badge/vsix-v2.2.0-ef8d22)
 
 ![](https://img.shields.io/badge/publisher-archicionado-fcc438)
 ![](https://img.shields.io/badge/chat-on_github_issue-19967d)
@@ -11,20 +11,12 @@
 ![](https://img.shields.io/badge/features-8-de5f85)
 ![](https://img.shields.io/badge/known_issues-0-c92d39)
 
-Whether you are a seasoned [C4 DSL](https://docs.structurizr.com/dsl/language) author or plan to start your **architecture as code** journey, `Cornifer` extension will support you along the way. Coupled with [Structurizr](https://structurizr.com/) engine, it provides a top-notch architecture stack. Give it a try and start contributing to the code-first architecture community.
+Whether you are a seasoned [C4 DSL](https://docs.structurizr.com/dsl/language) author or plan to start your **architecture as code** journey, the `Cornifer` extension will support you along the way. Coupled with the [Structurizr](https://structurizr.com/) engine, it provides a top-notch architecture stack. Give it a try and start contributing to the code-first architecture community.
 
 ## Installation
 
-### Visual Studio Code Marketplace
-
 Browse to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=archicionado.cornifer) and install the extension.
 Alternatively, you can search for `Cornifer` in the `Extensions` view of Visual Studio Code and install it from there.
-
-### Manual installation
-
-Navigate to the [latest release](https://github.com/rvr06/cornifer/releases/latest) and download the `.vsix` file. 
-
-Then, within VSCode, open the `Extensions` view, select for `Install from VSIX` from `Views and more actions` button and browse to the `.vsix`.
 
 ## Overview of the extension features
 
