@@ -223,6 +223,19 @@
 		"configuration": {
 			"title": "Cornifer",
 			"properties": {
+				"cornifer.containerRuntime": {
+					"type": "string",
+					"enum": [
+						"docker",
+						"wslc"
+					],
+					"enumDescriptions": [
+						"Use Docker to run the Structurizr container.",
+						"Use WSLC to run the Structurizr container."
+					],
+					"default": "docker",
+					"description": "Container runtime used for Structurizr preview."
+				},
 				"cornifer.structurizrImage": {
 					"type": "string",
 					"default": "structurizr/structurizr",
